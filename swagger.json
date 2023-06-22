@@ -20,6 +20,9 @@
     },
     "/patients/": {
       "post": {
+        "tags": [
+          "Patients"
+        ],
         "summary": "Create a new Patient",
         "description": "",
         "parameters": [
@@ -63,6 +66,9 @@
     },
     "/patients/{id}": {
       "put": {
+        "tags": [
+          "Patients"
+        ],
         "summary": "Update a Patient found by Id",
         "description": "",
         "parameters": [
@@ -113,6 +119,9 @@
         }
       },
       "get": {
+        "tags": [
+          "Patients"
+        ],
         "summary": "Get a patient by their DX",
         "description": "",
         "produces": [
@@ -136,6 +145,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "Patients"
+        ],
         "summary": "Delete a patient by Id",
         "description": "",
         "parameters": [
@@ -161,6 +173,9 @@
     },
     "/doctors/": {
       "get": {
+        "tags": [
+          "Doctors"
+        ],
         "summary": "Get all Doctors",
         "description": "",
         "produces": [
@@ -174,6 +189,9 @@
         }
       },
       "post": {
+        "tags": [
+          "Doctors"
+        ],
         "summary": "Create Doctor",
         "description": "",
         "parameters": [
@@ -220,6 +238,9 @@
     },
     "/doctors/{id}": {
       "get": {
+        "tags": [
+          "Doctors"
+        ],
         "summary": "Get single Doctor by id",
         "description": "",
         "produces": [
@@ -243,6 +264,9 @@
         }
       },
       "put": {
+        "tags": [
+          "Doctors"
+        ],
         "summary": "Update Doctor",
         "description": "",
         "parameters": [
@@ -296,6 +320,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "Doctors"
+        ],
         "summary": "Delete Doctor",
         "description": "",
         "parameters": [
@@ -321,6 +348,9 @@
     },
     "/doctors/bypatient/{id}": {
       "get": {
+        "tags": [
+          "Doctors"
+        ],
         "summary": "Get doctor by Patient id",
         "description": "",
         "produces": [
@@ -346,6 +376,9 @@
     },
     "/doctors/isAvailable": {
       "get": {
+        "tags": [
+          "Doctors"
+        ],
         "summary": "Get by Availible",
         "description": "",
         "produces": [
@@ -549,6 +582,9 @@
     },
     "/admins/": {
       "get": {
+        "tags": [
+          "Admins"
+        ],
         "summary": "Get All Administrators (WIP)",
         "description": "",
         "produces": [
@@ -562,6 +598,9 @@
         }
       },
       "post": {
+        "tags": [
+          "Admins"
+        ],
         "summary": "Add Administrator (WIP)",
         "description": "",
         "parameters": [
@@ -608,6 +647,9 @@
     },
     "/admins/{id}": {
       "get": {
+        "tags": [
+          "Admins"
+        ],
         "summary": "Get Single Administrator by ID (WIP)",
         "description": "",
         "produces": [
@@ -631,6 +673,9 @@
         }
       },
       "put": {
+        "tags": [
+          "Admins"
+        ],
         "summary": "Edit Administrator Information (WIP)",
         "description": "",
         "parameters": [
@@ -684,6 +729,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "Admins"
+        ],
         "summary": "Delete Administrator (WIP)",
         "description": "",
         "parameters": [

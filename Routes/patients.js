@@ -4,16 +4,28 @@ const validation = require('../middleware/validate');
 
 const patientscontroller = require('../Controllers/patientscontroller');
 
-router.post('/', patientscontroller.createPatient);
+router.post('/',
+ // #swagger.tags = ['Patients']
+  patientscontroller.createPatient);
 
-router.put('/:id', patientscontroller.updatePatient);
+router.put('/:id',
+ // #swagger.tags = ['Patients']
+patientscontroller.updatePatient);
 
-router.get('/:id', patientscontroller.getById);
+router.get('/:id',
+ // #swagger.tags = ['Patients']
+ patientscontroller.getById);
 
-router.get('/:id', patientscontroller.getByDr);
+router.get('/:id',
+ // #swagger.tags = ['Patients']
+patientscontroller.getByDr);
 
-router.get('/:id', patientscontroller.getByDx);
+router.get('/:id',
+ // #swagger.tags = ['Patients']
+patientscontroller.getByDx);
 
-router.delete('/:id', patientscontroller.deletePatient);
+router.delete('/:id',
+ // #swagger.tags = ['Patients']
+ patientscontroller.deletePatient);
 
 module.exports = router;

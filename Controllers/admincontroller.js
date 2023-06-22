@@ -2,6 +2,7 @@ const mongodb = require('../Database/mongodbconnect');
 const ObjectId = require('mongodb').ObjectId;
 
 const getAllAdmins = async (req, res, next) => {
+    // #swagger.tags = ['Admins']
     // #swagger.summary = 'Get All Administrators (WIP)'
   const result = await mongodb.getDb().db("Games").collection('games').find({});
   console.log(result);
@@ -12,6 +13,7 @@ const getAllAdmins = async (req, res, next) => {
 };
 
 const getSingleAdmin = async (req, res) => {
+    // #swagger.tags = ['Admins']
     // #swagger.summary = 'Get Single Administrator by ID (WIP)'
   if (!ObjectId.isValid(req.params.id)) {
     res.status(400).json('Must use a valid id to find a game.');
@@ -30,6 +32,7 @@ result.toArray().then((lists) => {
 };
 
 const addAdmin = async (req, res) => {
+    // #swagger.tags = ['Admins']
     // #swagger.summary = 'Add Administrator (WIP)'
   const game = {
     title: req.body.title,
@@ -49,6 +52,7 @@ const addAdmin = async (req, res) => {
 };
 
 const editAdmin = async (req, res) => {
+    // #swagger.tags = ['Admins']
     // #swagger.summary = 'Edit Administrator Information (WIP)'
   if (!ObjectId.isValid(req.params.id)) {
     res.status(400).json('Must use a valid id to find a game.');
@@ -73,6 +77,7 @@ const editAdmin = async (req, res) => {
 };
 
 const deleteAdmin = async (req, res) => {
+    // #swagger.tags = ['Admins']
     // #swagger.summary = 'Delete Administrator (WIP)'
   if (!ObjectId.isValid(req.params.id)) {
     res.status(400).json('Must use a valid id to find a game.');
