@@ -2,7 +2,7 @@ const mongodb = require('../Database/mongodbconnect');
 const ObjectId = require('mongodb').ObjectId;
 
 const getAll = async (req, res, next) => {
-
+// #swagger.summary = 'Get all Doctors'
   const result = await mongodb.getDb().db("Hospital").collection('doctors').find({});
   console.log(result);
   result.toArray().then((lists) => {
@@ -12,7 +12,7 @@ const getAll = async (req, res, next) => {
 };
 
 const getSingle = async (req, res) => {
-
+// #swagger.summary = 'Get single Doctor by id'
   if (!ObjectId.isValid(req.params.id)) {
     res.status(400).json('Must use a valid id to find a game.');
   }
@@ -30,7 +30,7 @@ result.toArray().then((lists) => {
 };
 
 const getByPatient = async (req, res) => {
-
+// #swagger.summary = 'Get doctor by Patient id'
   if (!ObjectId.isValid(req.params.id)) {
     res.status(400).json('Must use a valid id to find a game.');
   }
@@ -48,7 +48,7 @@ result.toArray().then((lists) => {
 };
 
 const getAvailable = async (req, res) => {
-
+// #swagger.summary = 'Get by Availible'
   if (!ObjectId.isValid(req.params.id)) {
     res.status(400).json('Must use a valid id to find a game.');
   }
@@ -66,6 +66,7 @@ result.toArray().then((lists) => {
 };
 
 const createDoctor = async (req, res) => {
+  // #swagger.summary = 'Create Doctor'
   const game = {
     title: req.body.title,
     releasedate: req.body.releasedate,
@@ -84,6 +85,7 @@ const createDoctor = async (req, res) => {
 };
 
 const updateDoctor = async (req, res) => {
+  // #swagger.summary = 'Update Doctor'
   if (!ObjectId.isValid(req.params.id)) {
     res.status(400).json('Must use a valid id to find a game.');
   }
@@ -107,6 +109,7 @@ const updateDoctor = async (req, res) => {
 };
 
 const deleteDoctor = async (req, res) => {
+  // #swagger.summary = 'Delete Doctor'
   if (!ObjectId.isValid(req.params.id)) {
     res.status(400).json('Must use a valid id to find a game.');
   }

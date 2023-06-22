@@ -8,9 +8,9 @@ router.get('/', adminsController.getAllAdmins);
 
 router.get('/:id', adminsController.getSingleAdmin);
 
-router.post('/', validation.adminVal, adminsController.addAdmin);
+router.post('/', adminsController.addAdmin);
 
-router.put('/:id', validation.adminVal, adminsController.editAdmin);
+router.put('/:id', adminsController.editAdmin);
 
 router.delete('/:id', adminsController.deleteAdmin);
 

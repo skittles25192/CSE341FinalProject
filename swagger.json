@@ -161,6 +161,7 @@
     },
     "/doctors/": {
       "get": {
+        "summary": "Get all Doctors",
         "description": "",
         "produces": [
           "application/json"
@@ -173,6 +174,7 @@
         }
       },
       "post": {
+        "summary": "Create Doctor",
         "description": "",
         "parameters": [
           {
@@ -218,6 +220,7 @@
     },
     "/doctors/{id}": {
       "get": {
+        "summary": "Get single Doctor by id",
         "description": "",
         "produces": [
           "application/json"
@@ -240,6 +243,7 @@
         }
       },
       "put": {
+        "summary": "Update Doctor",
         "description": "",
         "parameters": [
           {
@@ -292,6 +296,7 @@
         }
       },
       "delete": {
+        "summary": "Delete Doctor",
         "description": "",
         "parameters": [
           {
@@ -316,6 +321,7 @@
     },
     "/doctors/bypatient/{id}": {
       "get": {
+        "summary": "Get doctor by Patient id",
         "description": "",
         "produces": [
           "application/json"
@@ -340,6 +346,7 @@
     },
     "/doctors/isAvailable": {
       "get": {
+        "summary": "Get by Availible",
         "description": "",
         "produces": [
           "application/json"
