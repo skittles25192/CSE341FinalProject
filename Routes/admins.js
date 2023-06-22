@@ -2,16 +2,16 @@ const express = require('express');
 const router = express.Router();
 const validation = require('../middleware/validate');
 
-const contactsController = require('../Controllers/index');
+const adminsController = require('../Controllers/admincontroller');
 
-router.get('/', contactsController.getAll);
+router.get('/', adminsController.getAllAdmins);
 
-router.get('/:id', contactsController.getSingle);
+router.get('/:id', adminsController.getSingleAdmin);
 
-router.post('/', validation.saveGame, contactsController.createGame);
+router.post('/', validation.adminVal, adminsController.addAdmin);
 
-router.put('/:id', validation.saveGame, contactsController.updateGame);
+router.put('/:id', validation.adminVal, adminsController.editAdmin);
 
-router.delete('/:id', contactsController.deleteGame);
+router.delete('/:id', adminsController.deleteAdmin);
 
 module.exports = router;

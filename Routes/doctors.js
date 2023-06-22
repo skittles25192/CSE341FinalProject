@@ -2,16 +2,20 @@ const express = require('express');
 const router = express.Router();
 const validation = require('../middleware/validate');
 
-const contactsController = require('../Controllers/index');
+const doctorsController = require('../Controllers/doctorscontroller');
 
-router.get('/', contactsController.getAll);
+router.get('/', doctorsController.getAll);
 
-router.get('/:id', contactsController.getSingle);
+router.get('/:id', doctorsController.getSingle);
 
-router.post('/', validation.saveGame, contactsController.createGame);
+router.get('/bypatient/:id', doctorsController.getByPatient);
 
-router.put('/:id', validation.saveGame, contactsController.updateGame);
+router.get('/isAvailable', doctorsController.getAvailable);
 
-router.delete('/:id', contactsController.deleteGame);
+router.post('/', doctorsController.createDoctor);
+
+router.put('/:id', doctorsController.updateDoctor);
+
+router.delete('/:id', doctorsController.deleteDoctor);
 
 module.exports = router;

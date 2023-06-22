@@ -19,19 +19,8 @@
       }
     },
     "/patients/": {
-      "get": {
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
       "post": {
+        "summary": "Create a new Patient",
         "description": "",
         "parameters": [
           {
@@ -40,25 +29,22 @@
             "schema": {
               "type": "object",
               "properties": {
-                "title": {
+                "firstName": {
                   "example": "any"
                 },
-                "releasedate": {
+                "lastName": {
                   "example": "any"
                 },
-                "developer": {
+                "age": {
                   "example": "any"
                 },
-                "publisher": {
+                "sex": {
                   "example": "any"
                 },
-                "rating": {
+                "birthdate": {
                   "example": "any"
                 },
-                "played": {
-                  "example": "any"
-                },
-                "score": {
+                "email": {
                   "example": "any"
                 }
               }
@@ -69,9 +55,6 @@
           "201": {
             "description": "Created"
           },
-          "412": {
-            "description": "Precondition Failed"
-          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -79,29 +62,8 @@
       }
     },
     "/patients/{id}": {
-      "get": {
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          }
-        }
-      },
       "put": {
+        "summary": "Update a Patient found by Id",
         "description": "",
         "parameters": [
           {
@@ -116,25 +78,22 @@
             "schema": {
               "type": "object",
               "properties": {
-                "title": {
+                "firstName": {
                   "example": "any"
                 },
-                "releasedate": {
+                "lastName": {
                   "example": "any"
                 },
-                "developer": {
+                "age": {
                   "example": "any"
                 },
-                "publisher": {
+                "sex": {
                   "example": "any"
                 },
-                "rating": {
+                "birthdate": {
                   "example": "any"
                 },
-                "played": {
-                  "example": "any"
-                },
-                "score": {
+                "email": {
                   "example": "any"
                 }
               }
@@ -148,15 +107,36 @@
           "400": {
             "description": "Bad Request"
           },
-          "412": {
-            "description": "Precondition Failed"
-          },
           "500": {
             "description": "Internal Server Error"
           }
         }
       },
+      "get": {
+        "summary": "Get a patient by their DX",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
       "delete": {
+        "summary": "Delete a patient by Id",
         "description": "",
         "parameters": [
           {
@@ -229,9 +209,6 @@
         "responses": {
           "201": {
             "description": "Created"
-          },
-          "412": {
-            "description": "Precondition Failed"
           },
           "500": {
             "description": "Internal Server Error"
@@ -309,9 +286,6 @@
           "400": {
             "description": "Bad Request"
           },
-          "412": {
-            "description": "Precondition Failed"
-          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -340,8 +314,50 @@
         }
       }
     },
+    "/doctors/bypatient/{id}": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/doctors/isAvailable": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
     "/nurses/": {
       "get": {
+        "summary": "Get All Nurses (WIP)",
         "description": "",
         "produces": [
           "application/json"
@@ -354,6 +370,7 @@
         }
       },
       "post": {
+        "summary": "Add a Nurse (WIP)",
         "description": "",
         "parameters": [
           {
@@ -390,9 +407,6 @@
         "responses": {
           "201": {
             "description": "Created"
-          },
-          "412": {
-            "description": "Precondition Failed"
           },
           "500": {
             "description": "Internal Server Error"
@@ -402,6 +416,7 @@
     },
     "/nurses/{id}": {
       "get": {
+        "summary": "Get Single Nurse by ID (WIP)",
         "description": "",
         "produces": [
           "application/json"
@@ -424,6 +439,7 @@
         }
       },
       "put": {
+        "summary": "Edit Nurse Information (WIP)",
         "description": "",
         "parameters": [
           {
@@ -470,15 +486,13 @@
           "400": {
             "description": "Bad Request"
           },
-          "412": {
-            "description": "Precondition Failed"
-          },
           "500": {
             "description": "Internal Server Error"
           }
         }
       },
       "delete": {
+        "summary": "Delete a Nurse (WIP)",
         "description": "",
         "parameters": [
           {
@@ -501,8 +515,34 @@
         }
       }
     },
+    "/nurses/bypatient/{id}": {
+      "get": {
+        "summary": "Get Nurses by Patient ID (WIP)",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
     "/admins/": {
       "get": {
+        "summary": "Get All Administrators (WIP)",
         "description": "",
         "produces": [
           "application/json"
@@ -515,6 +555,7 @@
         }
       },
       "post": {
+        "summary": "Add Administrator (WIP)",
         "description": "",
         "parameters": [
           {
@@ -552,9 +593,6 @@
           "201": {
             "description": "Created"
           },
-          "412": {
-            "description": "Precondition Failed"
-          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -563,6 +601,7 @@
     },
     "/admins/{id}": {
       "get": {
+        "summary": "Get Single Administrator by ID (WIP)",
         "description": "",
         "produces": [
           "application/json"
@@ -585,6 +624,7 @@
         }
       },
       "put": {
+        "summary": "Edit Administrator Information (WIP)",
         "description": "",
         "parameters": [
           {
@@ -631,15 +671,13 @@
           "400": {
             "description": "Bad Request"
           },
-          "412": {
-            "description": "Precondition Failed"
-          },
           "500": {
             "description": "Internal Server Error"
           }
         }
       },
       "delete": {
+        "summary": "Delete Administrator (WIP)",
         "description": "",
         "parameters": [
           {
