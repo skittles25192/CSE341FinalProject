@@ -10,12 +10,14 @@ const doc = {
 };
 
 const outputFile = './swagger.json';
-const endpointsFiles = ['./Routes/index.js'];
+const endpointadmin = ['./Routes/admins.js'];
+const endpointspatient = ['./Routes/patients.js'];
+
 
 // generate swagger.json
 //swaggerAutogen(outputFile, endpointsFiles, doc);
 
 // Run server after it gets generated
- swaggerAutogen(outputFile, endpointsFiles, doc).then(async () => {
+ swaggerAutogen(outputFile, endpointadmin, endpointspatient, doc).then(async () => {
    await import('./server.js');
  });
