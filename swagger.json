@@ -122,7 +122,7 @@
         "tags": [
           "Patients"
         ],
-        "summary": "Get a patient by their DX",
+        "summary": "Get a Patient with their Id",
         "description": "",
         "produces": [
           "application/json"
@@ -167,6 +167,62 @@
           },
           "500": {
             "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/patients/{byDoctorid}": {
+      "get": {
+        "tags": [
+          "Patients"
+        ],
+        "summary": "Get a Patient by their Doctor",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "byDoctorid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/patients/{byDiagnosisid}": {
+      "get": {
+        "tags": [
+          "Patients"
+        ],
+        "summary": "Get a patient by their DX",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "byDiagnosisid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
           }
         }
       }
