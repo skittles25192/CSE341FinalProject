@@ -397,6 +397,9 @@
     },
     "/nurses/": {
       "get": {
+        "tags": [
+          "Nurses"
+        ],
         "summary": "Get All Nurses (WIP)",
         "description": "",
         "produces": [
@@ -410,6 +413,9 @@
         }
       },
       "post": {
+        "tags": [
+          "Nurses"
+        ],
         "summary": "Add a Nurse (WIP)",
         "description": "",
         "parameters": [
@@ -456,6 +462,9 @@
     },
     "/nurses/{id}": {
       "get": {
+        "tags": [
+          "Nurses"
+        ],
         "summary": "Get Single Nurse by ID (WIP)",
         "description": "",
         "produces": [
@@ -479,6 +488,9 @@
         }
       },
       "put": {
+        "tags": [
+          "Nurses"
+        ],
         "summary": "Edit Nurse Information (WIP)",
         "description": "",
         "parameters": [
@@ -532,6 +544,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "Nurses"
+        ],
         "summary": "Delete a Nurse (WIP)",
         "description": "",
         "parameters": [
@@ -557,6 +572,9 @@
     },
     "/nurses/bypatient/{id}": {
       "get": {
+        "tags": [
+          "Nurses"
+        ],
         "summary": "Get Nurses by Patient ID (WIP)",
         "description": "",
         "produces": [

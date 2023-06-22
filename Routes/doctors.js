@@ -5,8 +5,8 @@ const validation = require('../middleware/validate');
 const doctorsController = require('../Controllers/doctorscontroller');
 
 router.get('/',
-        // #swagger.tags = ['Doctors']
-        doctorsController.getAll);
+    // #swagger.tags = ['Doctors']
+    doctorsController.getAll);
 
 router.get('/:id', 
     // #swagger.tags = ['Doctors']
