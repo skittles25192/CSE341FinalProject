@@ -1,0 +1,168 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "Hospital API",
+      "description": "Hospital API",
+      "version": "1.0.0"
+    },
+    "host": "final-project-sho6.onrender.com",
+    "basePath": "/",
+    "schemes": [
+      "https"
+    ],
+    "paths": {
+      "/api-docs": {
+        "get": {
+          "description": "",
+          "parameters": [],
+          "responses": {}
+        }
+      },
+      "/games/": {
+        "get": {
+          "description": "",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        },
+        "post": {
+          "description": "",
+          "parameters": [
+            {
+              "name": "body",
+              "in": "body",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "example": "any"
+                  },
+                  "releasedate": {
+                    "example": "any"
+                  },
+                  "developer": {
+                    "example": "any"
+                  },
+                  "publisher": {
+                    "example": "any"
+                  },
+                  "rating": {
+                    "example": "any"
+                  },
+                  "played": {
+                    "example": "any"
+                  },
+                  "score": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Created"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          }
+        }
+      },
+      "/games/{id}": {
+        "get": {
+          "description": "",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        },
+        "put": {
+          "description": "",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "body",
+              "in": "body",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "example": "any"
+                  },
+                  "releasedate": {
+                    "example": "any"
+                  },
+                  "developer": {
+                    "example": "any"
+                  },
+                  "publisher": {
+                    "example": "any"
+                  },
+                  "rating": {
+                    "example": "any"
+                  },
+                  "played": {
+                    "example": "any"
+                  },
+                  "score": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "204": {
+              "description": "No Content"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          }
+        },
+        "delete": {
+          "description": "",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "204": {
+              "description": "No Content"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          }
+        }
+      }
+    }
+  }
