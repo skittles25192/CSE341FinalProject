@@ -16,11 +16,11 @@ router.get('/:id',
  // #swagger.tags = ['Patients']
  patientscontroller.getById);
 
-router.get('/:id',
+router.get('/byDoctor:id',
  // #swagger.tags = ['Patients']
 patientscontroller.getByDr);
 
-router.get('/:id',
+router.get('/byDiagnosis:id',
  // #swagger.tags = ['Patients']
 patientscontroller.getByDx);
 
