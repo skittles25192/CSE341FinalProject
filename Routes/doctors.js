@@ -22,11 +22,11 @@ router.get('/isAvailable',
 
 router.post('/',
     // #swagger.tags = ['Doctors']
-    doctorsController.createDoctor);
-
+    validation.validateDoctor, doctorsController.createDoctor);
+    
 router.put('/:id', 
     // #swagger.tags = ['Doctors']
-    doctorsController.updateDoctor);
+    validation.validateDoctor, doctorsController.updateDoctor);
 
 router.delete('/:id', 
     // #swagger.tags = ['Doctors']

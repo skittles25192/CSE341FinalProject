@@ -14,7 +14,7 @@ const getAll = async (req, res, next) => {
 const getSingle = async (req, res) => {
 // #swagger.summary = 'Get single Doctor by id'
   if (!ObjectId.isValid(req.params.id)) {
-    res.status(400).json('Must use a valid id to find a game.');
+    res.status(400).json('Must use a valid id to find a doctor.');
   }
 
   const userId = new ObjectId(req.params.id);
@@ -32,7 +32,7 @@ result.toArray().then((lists) => {
 const getByPatient = async (req, res) => {
 // #swagger.summary = 'Get doctor by Patient id'
   if (!ObjectId.isValid(req.params.id)) {
-    res.status(400).json('Must use a valid id to find a game.');
+    res.status(400).json('Must use a valid id to find a doctor.');
   }
 
   const userId = new ObjectId(req.params.id);
@@ -50,7 +50,7 @@ result.toArray().then((lists) => {
 const getAvailable = async (req, res) => {
 // #swagger.summary = 'Get by Availible'
   if (!ObjectId.isValid(req.params.id)) {
-    res.status(400).json('Must use a valid id to find a game.');
+    res.status(400).json('Must use a valid id to find a doctor.');
   }
 
   const userId = new ObjectId(req.params.id);
@@ -65,18 +65,23 @@ result.toArray().then((lists) => {
   });
 };
 
+
+
 const createDoctor = async (req, res) => {
   // #swagger.summary = 'Create Doctor'
-  const game = {
-    title: req.body.title,
-    releasedate: req.body.releasedate,
-    developer: req.body.developer,
-    publisher: req.body.publisher,
-    rating: req.body.rating,
-    played: req.body.played,
-    score: req.body.score
+  const doctor = {
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    age: req.body.age,
+    birthdate: req.body.birthdate,
+    email: req.body.email,
+    phone: req.body.phone,
+    specialty: req.body.specialty,
+    isAvailable: req.body.isAvailable,
+    npi: req.body.npi,
+    
   };
-  const response = await mongodb.getDb().db("Hospital").collection('doctors').insertOne(game);
+  const response = await mongodb.getDb().db("Hospital").collection('doctors').insertOne(doctor);
   if (response.acknowledged) {
     res.status(201).json(response);
   } else {
@@ -87,19 +92,21 @@ const createDoctor = async (req, res) => {
 const updateDoctor = async (req, res) => {
   // #swagger.summary = 'Update Doctor'
   if (!ObjectId.isValid(req.params.id)) {
-    res.status(400).json('Must use a valid id to find a game.');
+    res.status(400).json('Must use a valid id to find a doctor.');
   }
   const userId = new ObjectId(req.params.id);
-  const game = {
-    title: req.body.title,
-    releasedate: req.body.releasedate,
-    developer: req.body.developer,
-    publisher: req.body.publisher,
-    rating: req.body.rating,
-    played: req.body.played,
-    score: req.body.score
+  const doctor = {
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    age: req.body.age,
+    birthdate: req.body.birthdate,
+    email: req.body.email,
+    phone: req.body.phone,
+    specialty: req.body.specialty,
+    isAvailable: req.body.isAvailable,
+    npi: req.body.npi,
   };
-  const response = await mongodb.getDb().db("Hospital").collection('doctors').replaceOne({ _id: userId }, game);
+  const response = await mongodb.getDb().db("Hospital").collection('doctors').replaceOne({ _id: userId }, doctor);
   console.log(response);
   if (response.modifiedCount > 0) {
     res.status(204).send();
@@ -111,7 +118,7 @@ const updateDoctor = async (req, res) => {
 const deleteDoctor = async (req, res) => {
   // #swagger.summary = 'Delete Doctor'
   if (!ObjectId.isValid(req.params.id)) {
-    res.status(400).json('Must use a valid id to find a game.');
+    res.status(400).json('Must use a valid id to delete a doctor.');
   }
   const userId = new ObjectId(req.params.id);
   const response = await mongodb.getDb().db("Hospital").collection('doctors').remove({ _id: userId }, true);

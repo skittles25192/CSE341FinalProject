@@ -25,7 +25,7 @@ const createPatient = async (req, res) => {
   const updatePatient = async (req, res) => {
     // #swagger.summary = 'Update a Patient found by Id'
     if (!ObjectId.isValid(req.params.id)) {
-      res.status(400).json('Must use a valid id to find a game.');
+      res.status(400).json('Must use a valid id to update a Patient.');
     }
     const userId = new ObjectId(req.params.id);
     const patient = {
@@ -71,11 +71,11 @@ result.toArray().then((lists) => {
 
 const getByDr = async (req, res) => {
     // #swagger.summary = 'Get a Patient by their Doctor'
-    if (!ObjectId.isValid(req.params.DrId)) {
+    if (!ObjectId.isValid(req.params.id)) {
       res.status(400).json('Must use a valid id to find a patient.');
     }
   
-    const patients = new ObjectId(req.params.DrId);
+    const patients = new ObjectId(req.params.id);
     const result = await mongodb
     .getDb()
     .db("Hospital")
@@ -92,11 +92,11 @@ const getByDr = async (req, res) => {
 
   const getByDx = async (req, res) => {
     // #swagger.summary = 'Get a patient by their DX'
-    if (!ObjectId.isValid(req.params.Dx)) {
+    if (!ObjectId.isValid(req.params.id)) {
       res.status(400).json('Must use a valid id to find a patient.');
     }
   
-    const patients = new ObjectId(req.params.Dx);
+    const patients = new ObjectId(req.params.id);
     const result = await mongodb
     .getDb()
     .db("Hospital")
@@ -113,7 +113,7 @@ const getByDr = async (req, res) => {
 const deletePatient = async (req, res) => {
       // #swagger.summary = 'Delete a patient by Id'
   if (!ObjectId.isValid(req.params.id)) {
-    res.status(400).json('Must use a valid id to find a game.');
+    res.status(400).json('Must use a valid id to delete a patient.');
   }
   const userId = new ObjectId(req.params.id);
   const response = await mongodb.getDb().db("Hospital").collection('patients').remove({ _id: userId }, true);

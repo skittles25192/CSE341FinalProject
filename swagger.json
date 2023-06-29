@@ -58,6 +58,9 @@
           "201": {
             "description": "Created"
           },
+          "412": {
+            "description": "Precondition Failed"
+          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -112,6 +115,9 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "412": {
+            "description": "Precondition Failed"
           },
           "500": {
             "description": "Internal Server Error"
@@ -171,7 +177,7 @@
         }
       }
     },
-    "/patients/{byDoctorid}": {
+    "/patients/byDoctor/{id}": {
       "get": {
         "tags": [
           "Patients"
@@ -183,7 +189,7 @@
         ],
         "parameters": [
           {
-            "name": "byDoctorid",
+            "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
@@ -199,7 +205,7 @@
         }
       }
     },
-    "/patients/{byDiagnosisid}": {
+    "/patients/byDiagnosis/{id}": {
       "get": {
         "tags": [
           "Patients"
@@ -211,7 +217,7 @@
         ],
         "parameters": [
           {
-            "name": "byDiagnosisid",
+            "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
@@ -257,25 +263,31 @@
             "schema": {
               "type": "object",
               "properties": {
-                "title": {
+                "firstName": {
                   "example": "any"
                 },
-                "releasedate": {
+                "lastName": {
                   "example": "any"
                 },
-                "developer": {
+                "age": {
                   "example": "any"
                 },
-                "publisher": {
+                "birthdate": {
                   "example": "any"
                 },
-                "rating": {
+                "email": {
                   "example": "any"
                 },
-                "played": {
+                "phone": {
                   "example": "any"
                 },
-                "score": {
+                "specialty": {
+                  "example": "any"
+                },
+                "isAvailable": {
+                  "example": "any"
+                },
+                "npi": {
                   "example": "any"
                 }
               }
@@ -285,6 +297,9 @@
         "responses": {
           "201": {
             "description": "Created"
+          },
+          "412": {
+            "description": "Precondition Failed"
           },
           "500": {
             "description": "Internal Server Error"
@@ -338,25 +353,31 @@
             "schema": {
               "type": "object",
               "properties": {
-                "title": {
+                "firstName": {
                   "example": "any"
                 },
-                "releasedate": {
+                "lastName": {
                   "example": "any"
                 },
-                "developer": {
+                "age": {
                   "example": "any"
                 },
-                "publisher": {
+                "birthdate": {
                   "example": "any"
                 },
-                "rating": {
+                "email": {
                   "example": "any"
                 },
-                "played": {
+                "phone": {
                   "example": "any"
                 },
-                "score": {
+                "specialty": {
+                  "example": "any"
+                },
+                "isAvailable": {
+                  "example": "any"
+                },
+                "npi": {
                   "example": "any"
                 }
               }
@@ -369,6 +390,9 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "412": {
+            "description": "Precondition Failed"
           },
           "500": {
             "description": "Internal Server Error"
