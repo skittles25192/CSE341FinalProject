@@ -11,7 +11,8 @@ const createPatient = async (req, res) => {
       birthdate: req.body.birthdate,
       email: req.body.email,
       phone: req.body.phone,
-      dxcode: req.body.dxcode
+      dxcode: req.body.dxcode,
+      drNpi: req.body.drNpi
     };
     const response = await mongodb.getDb().db("Hospital").collection('patients').insertOne(patient);
     if (response.acknowledged) {
@@ -38,7 +39,9 @@ const createPatient = async (req, res) => {
       birthdate: req.body.birthdate,
       email: req.body.email,
       phone: req.body.phone,
-      dxcode: req.body.dxcode
+      dxcode: req.body.dxcode,
+      drNpi: req.body.drNpi
+
     };
     const response = await mongodb.getDb().db("Hospital").collection('patients').replaceOne({ _id: userId }, patient);
     console.log(response);
@@ -49,7 +52,15 @@ const createPatient = async (req, res) => {
     }
   };
 
-    
+  const getAll = async (req, res, next) => {
+    // #swagger.summary = 'Get all Doctors'
+      const result = await mongodb.getDb().db("Hospital").collection('patients').find({});
+      console.log(result);
+      result.toArray().then((lists) => {
+        res.setHeader('Content-Type', 'application/json');
+        res.status(200).json(lists);
+      });
+    };
 
 
 const getById = async (req, res) => {
@@ -75,16 +86,13 @@ result.toArray().then((lists) => {
 
 const getByDr = async (req, res) => {
     // #swagger.summary = 'Get a Patient by their Doctor'
-    if (!ObjectId.isValid(req.params.id)) {
-      res.status(400).json('Must use a valid id to find a patient.');
-    }
-  
-    const patients = new ObjectId(req.params.id);
+
+    const patients = req.params.npi;
     const result = await mongodb
     .getDb()
     .db("Hospital")
     .collection('patients')
-    .find({ _id: patients });
+    .find({ npi: patients });
   result.toArray().then((lists) => {
       res.setHeader('Content-Type', 'application/json');
       res.status(200).json(lists[0]);
@@ -96,16 +104,13 @@ const getByDr = async (req, res) => {
 
   const getByDx = async (req, res) => {
     // #swagger.summary = 'Get a patient by their DX'
-    if (!ObjectId.isValid(req.params.id)) {
-      res.status(400).json('Must use a valid id to find a patient.');
-    }
-  
-    const patients = new ObjectId(req.params.id);
+
+    const patients = req.params.dxcode;
     const result = await mongodb
     .getDb()
     .db("Hospital")
     .collection('patients')
-    .find({ _id: patients });
+    .find({ dxcode: patients });
   result.toArray().then((lists) => {
       res.setHeader('Content-Type', 'application/json');
       res.status(200).json(lists[0]);
@@ -129,4 +134,4 @@ const deletePatient = async (req, res) => {
   }
 };
 
-module.exports = { getById, createPatient, updatePatient, deletePatient, getByDr, getByDx };
+module.exports = { getById, createPatient, updatePatient, deletePatient, getByDr, getByDx, getAll };

@@ -28,6 +28,26 @@ const validateDoctor = (req, res, next) => {
   });
 };
 
+
+const validateNPI = (req, res, next) => {
+  const validationRule = {
+    npi: 'required|integer|digits:10'
+  };
+
+  validator(req.body, validationRule, {}, (err, status) => {
+    if (!status) {
+      res.status(412).send({
+        success: false,
+        message: 'Validation failed',
+        data: err
+      });
+    } else {
+      next();
+    }
+  });
+};
+
+
 const validatePatient = (req, res, next) => {
   const validationRule = {
     firstName: 'required|string',
@@ -37,7 +57,8 @@ const validatePatient = (req, res, next) => {
     birthdate: 'required|date',
     email: 'required|email',
     phone: 'required|string',
-    dxcode: 'required|string'
+    dxcode: 'required|string',
+    drNpi: 'integer|digits:10'
   };
 
   validator(req.body, validationRule, {}, (err, status) => {
@@ -60,5 +81,5 @@ const validatePatient = (req, res, next) => {
 // }
 
 module.exports = {
-  validateDoctor, validatePatient
+  validateDoctor, validatePatient, validateNPI
 };

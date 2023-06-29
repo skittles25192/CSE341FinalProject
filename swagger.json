@@ -55,6 +55,9 @@
                 },
                 "dxcode": {
                   "example": "any"
+                },
+                "drNpi": {
+                  "example": "any"
                 }
               }
             }
@@ -69,6 +72,22 @@
           },
           "500": {
             "description": "Internal Server Error"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Patients"
+        ],
+        "summary": "Get all Doctors",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
           }
         }
       }
@@ -115,6 +134,9 @@
                   "example": "any"
                 },
                 "dxcode": {
+                  "example": "any"
+                },
+                "drNpi": {
                   "example": "any"
                 }
               }
@@ -189,7 +211,7 @@
         }
       }
     },
-    "/patients/byDoctor/{id}": {
+    "/patients/byDoctor/{npi}": {
       "get": {
         "tags": [
           "Patients"
@@ -201,7 +223,7 @@
         ],
         "parameters": [
           {
-            "name": "id",
+            "name": "npi",
             "in": "path",
             "required": true,
             "type": "string"
@@ -211,13 +233,13 @@
           "200": {
             "description": "OK"
           },
-          "400": {
-            "description": "Bad Request"
+          "412": {
+            "description": "Precondition Failed"
           }
         }
       }
     },
-    "/patients/byDiagnosis/{id}": {
+    "/patients/byDiagnosis/{dxcode}": {
       "get": {
         "tags": [
           "Patients"
@@ -229,7 +251,7 @@
         ],
         "parameters": [
           {
-            "name": "id",
+            "name": "dxcode",
             "in": "path",
             "required": true,
             "type": "string"
@@ -238,9 +260,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
           }
         }
       }

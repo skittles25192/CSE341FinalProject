@@ -12,15 +12,19 @@ router.put('/:id',
   // #swagger.tags = ['Patients']
   validation.validatePatient, patientscontroller.updatePatient);
 
+  router.get('/',
+    // #swagger.tags = ['Patients']
+    patientscontroller.getAll);
+
 router.get('/:id',
   // #swagger.tags = ['Patients']
   patientscontroller.getById);
 
-router.get('/byDoctor/:id',
+router.get('/byDoctor/:npi',
   // #swagger.tags = ['Patients']
-  patientscontroller.getByDr);
+ validation.validateNPI,  patientscontroller.getByDr);
 
-router.get('/byDiagnosis/:id',
+router.get('/byDiagnosis/:dxcode',
   // #swagger.tags = ['Patients']
   patientscontroller.getByDx);
 
