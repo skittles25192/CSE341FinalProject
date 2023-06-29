@@ -49,6 +49,12 @@
                 },
                 "email": {
                   "example": "any"
+                },
+                "phone": {
+                  "example": "any"
+                },
+                "dxcode": {
+                  "example": "any"
                 }
               }
             }
@@ -103,6 +109,12 @@
                   "example": "any"
                 },
                 "email": {
+                  "example": "any"
+                },
+                "phone": {
+                  "example": "any"
+                },
+                "dxcode": {
                   "example": "any"
                 }
               }
@@ -272,6 +284,9 @@
                 "age": {
                   "example": "any"
                 },
+                "sex": {
+                  "example": "any"
+                },
                 "birthdate": {
                   "example": "any"
                 },
@@ -360,6 +375,9 @@
                   "example": "any"
                 },
                 "age": {
+                  "example": "any"
+                },
+                "sex": {
                   "example": "any"
                 },
                 "birthdate": {
