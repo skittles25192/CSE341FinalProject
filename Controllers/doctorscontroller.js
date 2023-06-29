@@ -73,12 +73,13 @@ const createDoctor = async (req, res) => {
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     age: req.body.age,
+    sex: req.body.sex,
     birthdate: req.body.birthdate,
     email: req.body.email,
     phone: req.body.phone,
     specialty: req.body.specialty,
     isAvailable: req.body.isAvailable,
-    npi: req.body.npi,
+    npi: req.body.npi
     
   };
   const response = await mongodb.getDb().db("Hospital").collection('doctors').insertOne(doctor);
@@ -99,12 +100,13 @@ const updateDoctor = async (req, res) => {
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     age: req.body.age,
+    sex: req.body.sex,
     birthdate: req.body.birthdate,
     email: req.body.email,
     phone: req.body.phone,
     specialty: req.body.specialty,
     isAvailable: req.body.isAvailable,
-    npi: req.body.npi,
+    npi: req.body.npi
   };
   const response = await mongodb.getDb().db("Hospital").collection('doctors').replaceOne({ _id: userId }, doctor);
   console.log(response);
@@ -121,7 +123,7 @@ const deleteDoctor = async (req, res) => {
     res.status(400).json('Must use a valid id to delete a doctor.');
   }
   const userId = new ObjectId(req.params.id);
-  const response = await mongodb.getDb().db("Hospital").collection('doctors').remove({ _id: userId }, true);
+  const response = await mongodb.getDb().db("Hospital").collection('doctors').deleteOne({ _id: userId }, true);
   console.log(response);
   if (response.deletedCount > 0) {
     res.status(204).send();

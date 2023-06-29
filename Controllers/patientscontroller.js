@@ -9,7 +9,9 @@ const createPatient = async (req, res) => {
       age: req.body.age,
       sex: req.body.sex,
       birthdate: req.body.birthdate,
-      email: req.body.email
+      email: req.body.email,
+      phone: req.body.phone,
+      dxcode: req.body.dxcode
     };
     const response = await mongodb.getDb().db("Hospital").collection('patients').insertOne(patient);
     if (response.acknowledged) {
@@ -34,7 +36,9 @@ const createPatient = async (req, res) => {
       age: req.body.age,
       sex: req.body.sex,
       birthdate: req.body.birthdate,
-      email: req.body.email
+      email: req.body.email,
+      phone: req.body.phone,
+      dxcode: req.body.dxcode
     };
     const response = await mongodb.getDb().db("Hospital").collection('patients').replaceOne({ _id: userId }, patient);
     console.log(response);
@@ -116,7 +120,7 @@ const deletePatient = async (req, res) => {
     res.status(400).json('Must use a valid id to delete a patient.');
   }
   const userId = new ObjectId(req.params.id);
-  const response = await mongodb.getDb().db("Hospital").collection('patients').remove({ _id: userId }, true);
+  const response = await mongodb.getDb().db("Hospital").collection('patients').deleteOne({_id: userId});
   console.log(response);
   if (response.deletedCount > 0) {
     res.status(204).send();
