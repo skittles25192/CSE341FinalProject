@@ -17,7 +17,7 @@ router.post('/',
             $email: 'email@email.com',
             $phone: '555-555-5555',
             dxcode: 'R41. 3',
-            drNpi: '6155382000'
+            npi: '6155382000'
           }
   } */
   validation.validatePatient, patientscontroller.createPatient);
@@ -35,7 +35,7 @@ router.put('/:id',
             email: 'email@email.com',
             phone: '555-555-5555',
             dxcode: 'R41. 3',
-            drNpi: '6155382000'
+            npi: '6155382000'
           }
   } */
   validation.validatePatient, patientscontroller.updatePatient);
@@ -50,7 +50,7 @@ router.get('/:id',
 
 router.get('/byDoctor/:npi',
   // #swagger.tags = ['Patients']
- validation.validateNPI,  patientscontroller.getByDr);
+   patientscontroller.getByDr);
 
 router.get('/byDiagnosis/:dxcode',
   // #swagger.tags = ['Patients']

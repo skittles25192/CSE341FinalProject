@@ -11,7 +11,7 @@ const doc = {
     { name: 'Doctors', description: 'APIs for doctors' },
     { name: 'Patients', description: 'APIs for patients' },
     { name: 'Nurses', description: 'APIs for nurses' },
-    { name: 'Administrators', description: 'APIs for administrators' },
+    { name: 'Admins', description: 'APIs for administrators' },
   ],
   definitions: {
     Doctor: {

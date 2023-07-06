@@ -12,7 +12,7 @@ const createPatient = async (req, res) => {
       email: req.body.email,
       phone: req.body.phone,
       dxcode: req.body.dxcode,
-      drNpi: req.body.drNpi
+      npi: req.body.npi
     };
     const response = await mongodb.getDb().db("Hospital").collection('patients').insertOne(patient);
     if (response.acknowledged) {
@@ -40,7 +40,7 @@ const createPatient = async (req, res) => {
       email: req.body.email,
       phone: req.body.phone,
       dxcode: req.body.dxcode,
-      drNpi: req.body.drNpi
+      npi: req.body.npi
 
     };
     const response = await mongodb.getDb().db("Hospital").collection('patients').replaceOne({ _id: userId }, patient);
@@ -87,7 +87,8 @@ result.toArray().then((lists) => {
 const getByDr = async (req, res) => {
     // #swagger.summary = 'Get a Patient by their Doctor'
 
-    const patients = req.params.npi;
+    const patients = parseInt(req.params.npi);
+    console.log(typeof patients);
     const result = await mongodb
     .getDb()
     .db("Hospital")

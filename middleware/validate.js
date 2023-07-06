@@ -33,7 +33,7 @@ const validateNPI = (req, res, next) => {
     npi: 'required|integer|digits:10'
   };
 
-  validator(req.params, validationRule, {}, (err, status) => {
+  validator(req.params.npi, validationRule, {}, (err, status) => {
     if (!status) {
       res.status(412).send({
         success: false,
