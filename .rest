@@ -10,4 +10,6 @@ GET http://localhost:3000/api-docs
 
 GET http://localhost:3000/api-docs/Nurses/
 
+###
 
+GET http://localhost:3000/patients/byDoctor/1234567890
