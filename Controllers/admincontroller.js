@@ -5,11 +5,16 @@ const getAllAdmins = async (req, res, next) => {
     // #swagger.tags = ['Admins']
     // #swagger.summary = 'Get All Administrators (WIP)'
   const result = await mongodb.getDb().db("Hospital").collection('admins').find({});
-  console.log(result);
-  result.toArray().then((lists) => {
+  try {
+    lists = await result.toArray();
+    if (!lists.length > 0) {
+      throw new Error('No data found. Check if you have misspelled anything or add documents to the collection.');
+    }
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(lists);
-  });
+  } catch(error) {
+    res.status(400).json(error.message || 'an error happened while getting posts');
+  }
 };
 
 const getSingleAdmin = async (req, res) => {
@@ -25,10 +30,16 @@ const getSingleAdmin = async (req, res) => {
   .db("Hospital")
   .collection('admins')
   .find({ _id: userId });
-result.toArray().then((lists) => {
+  try {
+    lists = await result.toArray();
+    if (!lists.length > 0) {
+      throw new Error('No data found. Check if you have misspelled anything or add documents to the collection.');
+    }
     res.setHeader('Content-Type', 'application/json');
-    res.status(200).json(lists[0]);
-  });
+    res.status(200).json(lists);
+  } catch(error) {
+    res.status(400).json(error.message || 'an error happened while getting posts');
+  }
 };
 
 const addAdmin = async (req, res) => {

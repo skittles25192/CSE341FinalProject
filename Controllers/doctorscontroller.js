@@ -4,11 +4,16 @@ const ObjectId = require('mongodb').ObjectId;
 const getAll = async (req, res, next) => {
 // #swagger.summary = 'Get all Doctors'
   const result = await mongodb.getDb().db("Hospital").collection('doctors').find({});
-  console.log(result);
-  result.toArray().then((lists) => {
+  try {
+    lists = await result.toArray();
+    if (!lists.length > 0) {
+      throw new Error('No data found. Check if you have misspelled anything or add documents to the collection.');
+    }
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(lists);
-  });
+  } catch(error) {
+    res.status(400).json(error.message || 'an error happened while getting posts');
+  }
 };
 
 const getSingle = async (req, res) => {
@@ -23,10 +28,16 @@ const getSingle = async (req, res) => {
   .db("Hospital")
   .collection('doctors')
   .find({ _id: userId });
-result.toArray().then((lists) => {
+  try {
+    lists = await result.toArray();
+    if (!lists.length > 0) {
+      throw new Error('No data found. Check if you have misspelled anything or add documents to the collection.');
+    }
     res.setHeader('Content-Type', 'application/json');
-    res.status(200).json(lists[0]);
-  });
+    res.status(200).json(lists);
+  } catch(error) {
+    res.status(400).json(error.message || 'an error happened while getting posts');
+  }
 };
 
 const getByPatient = async (req, res) => {
@@ -41,10 +52,16 @@ const getByPatient = async (req, res) => {
   .db("Hospital")
   .collection('doctors')
   .find({ _id: userId });
-result.toArray().then((lists) => {
+  try {
+    lists = await result.toArray();
+    if (!lists.length > 0) {
+      throw new Error('No data found. Check if you have misspelled anything or add documents to the collection.');
+    }
     res.setHeader('Content-Type', 'application/json');
-    res.status(200).json(lists[0]);
-  });
+    res.status(200).json(lists);
+  } catch(error) {
+    res.status(400).json(error.message || 'an error happened while getting posts');
+  }
 };
 
 const getAvailable = async (req, res) => {
@@ -59,10 +76,16 @@ const getAvailable = async (req, res) => {
   .db("Hospital")
   .collection('doctors')
   .find({ _id: userId });
-result.toArray().then((lists) => {
+  try {
+    lists = await result.toArray();
+    if (!lists.length > 0) {
+      throw new Error('No data found. Check if you have misspelled anything or add documents to the collection.');
+    }
     res.setHeader('Content-Type', 'application/json');
-    res.status(200).json(lists[0]);
-  });
+    res.status(200).json(lists);
+  } catch(error) {
+    res.status(400).json(error.message || 'an error happened while getting posts');
+  }
 };
 
 

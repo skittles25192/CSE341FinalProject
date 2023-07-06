@@ -111,7 +111,7 @@
         "tags": [
           "Patients"
         ],
-        "summary": "Get all Doctors",
+        "summary": "Get all Patients",
         "description": "",
         "produces": [
           "application/json"
@@ -316,6 +316,9 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
           }
         }
       },
@@ -839,6 +842,9 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
           }
         }
       },

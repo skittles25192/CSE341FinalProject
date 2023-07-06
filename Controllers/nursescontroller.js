@@ -3,7 +3,7 @@ const ObjectId = require('mongodb').ObjectId;
 
 const getAllNurses = async (req, res, next) => {
   // #swagger.summary = 'Get All Nurses'
-  const result = await mongodb.getDb().db("Hospial").collection('nuses').find({});
+  const result = await mongodb.getDb().db("Hospital").collection('nurses').find({});
   try {
     lists = await result.toArray();
     if (!lists.length > 0) {

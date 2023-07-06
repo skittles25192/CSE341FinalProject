@@ -53,7 +53,7 @@ const createPatient = async (req, res) => {
   };
 
   const getAll = async (req, res, next) => {
-    // #swagger.summary = 'Get all Doctors'
+    // #swagger.summary = 'Get all Patients'
       const result = await mongodb.getDb().db("Hospital").collection('patients').find({});
       console.log(result);
       result.toArray().then((lists) => {
