@@ -87,8 +87,7 @@ result.toArray().then((lists) => {
 const getByDr = async (req, res) => {
     // #swagger.summary = 'Get a Patient by their Doctor'
 
-    const patients = parseInt(req.params.npi);
-    console.log(typeof patients);
+    const patients = req.params.npi;
     const result = await mongodb
     .getDb()
     .db("Hospital")
@@ -96,7 +95,7 @@ const getByDr = async (req, res) => {
     .find({ npi: patients });
   result.toArray().then((lists) => {
       res.setHeader('Content-Type', 'application/json');
-      res.status(200).json(lists[0]);
+      res.status(200).json(lists);
     });
   };
 

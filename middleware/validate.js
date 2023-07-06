@@ -33,7 +33,7 @@ const validateNPI = (req, res, next) => {
     npi: 'required|integer|digits:10'
   };
 
-  validator(req.params.npi, validationRule, {}, (err, status) => {
+  validator(req.params, validationRule, {}, (err, status) => {
     if (!status) {
       res.status(412).send({
         success: false,
@@ -56,10 +56,12 @@ const validatePatient = (req, res, next) => {
     email: 'required|email',
     phone: 'required|string',
     dxcode: 'required|string',
-    drNpi: 'integer|digits:10'
+    npi: 'integer|digits:10'
   };
 
   validator(req.body, validationRule, {}, (err, status) => {
+    console.log(req.body)
+
     if (!status) {
       res.status(412).send({
         success: false,

@@ -50,7 +50,7 @@ router.get('/:id',
 
 router.get('/byDoctor/:npi',
   // #swagger.tags = ['Patients']
-   patientscontroller.getByDr);
+  validation.validateNPI, patientscontroller.getByDr);
 
 router.get('/byDiagnosis/:dxcode',
   // #swagger.tags = ['Patients']
