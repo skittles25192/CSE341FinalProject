@@ -5,7 +5,6 @@ const validateDoctor = (req, res, next) => {
   const validationRule = {
     firstName: 'required|string',
     lastName: 'required|string',
-    age: 'required|integer',
     sex: 'required|string',
     birthdate: 'required|date',
     email: 'required|email',
@@ -52,13 +51,60 @@ const validatePatient = (req, res, next) => {
   const validationRule = {
     firstName: 'required|string',
     lastName: 'required|string',
-    age: 'required|integer',
     sex: 'required|string',
     birthdate: 'required|date',
     email: 'required|email',
     phone: 'required|string',
     dxcode: 'required|string',
     drNpi: 'integer|digits:10'
+  };
+
+  validator(req.body, validationRule, {}, (err, status) => {
+    if (!status) {
+      res.status(412).send({
+        success: false,
+        message: 'Validation failed',
+        data: err
+      });
+    } else {
+      next();
+    }
+  });
+};
+
+const validateNurse = (req, res, next) => {
+  const validationRule = {
+    firstName: 'required|string',
+    lastName: 'required|string',
+    sex: 'required|string',
+    birthdate: 'required|date',
+    email: 'required|email',
+    phone: 'required|string',
+    shift: 'required|string'
+  };
+
+  validator(req.body, validationRule, {}, (err, status) => {
+    if (!status) {
+      res.status(412).send({
+        success: false,
+        message: 'Validation failed',
+        data: err
+      });
+    } else {
+      next();
+    }
+  });
+};
+
+const validateAdministrator = (req, res, next) => {
+  const validationRule = {
+    firstName: 'required|string',
+    lastName: 'required|string',
+    sex: 'required|string',
+    birthdate: 'required|date',
+    email: 'required|email',
+    phone: 'required|string',
+    securityLevel: 'required|int'
   };
 
   validator(req.body, validationRule, {}, (err, status) => {
@@ -81,5 +127,5 @@ const validatePatient = (req, res, next) => {
 // }
 
 module.exports = {
-  validateDoctor, validatePatient, validateNPI
+  validateDoctor, validatePatient, validateNPI, validateAdministrator, validateNurse,
 };
