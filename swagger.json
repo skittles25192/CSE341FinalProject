@@ -7,6 +7,24 @@
   },
   "host": "final-project-sho6.onrender.com",
   "basePath": "/",
+  "tags": [
+    {
+      "name": "Doctors",
+      "description": "APIs for doctors"
+    },
+    {
+      "name": "Patients",
+      "description": "APIs for patients"
+    },
+    {
+      "name": "Nurses",
+      "description": "APIs for nurses"
+    },
+    {
+      "name": "Administrators",
+      "description": "APIs for administrators"
+    }
+  ],
   "schemes": [
     "https"
   ],
@@ -29,37 +47,51 @@
           {
             "name": "body",
             "in": "body",
+            "description": "Add a new patient to the database.",
             "schema": {
               "type": "object",
               "properties": {
                 "firstName": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "John"
                 },
                 "lastName": {
-                  "example": "any"
-                },
-                "age": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Doe"
                 },
                 "sex": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "M"
                 },
                 "birthdate": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "10/10/1997"
                 },
                 "email": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "email@email.com"
                 },
                 "phone": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "555-555-5555"
                 },
                 "dxcode": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "R41. 3"
                 },
                 "drNpi": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "6155382000"
                 }
-              }
+              },
+              "required": [
+                "firstName",
+                "lastName",
+                "sex",
+                "birthdate",
+                "email",
+                "phone"
+              ]
             }
           }
         ],
@@ -109,35 +141,41 @@
           {
             "name": "body",
             "in": "body",
+            "description": "Update a patient in the database.",
             "schema": {
               "type": "object",
               "properties": {
                 "firstName": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "John"
                 },
                 "lastName": {
-                  "example": "any"
-                },
-                "age": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Doe"
                 },
                 "sex": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "M"
                 },
                 "birthdate": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "10/10/1997"
                 },
                 "email": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "email@email.com"
                 },
                 "phone": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "555-555-5555"
                 },
                 "dxcode": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "R41. 3"
                 },
                 "drNpi": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "6155382000"
                 }
               }
             }
@@ -291,40 +329,58 @@
           {
             "name": "body",
             "in": "body",
+            "description": "Add a new doctor to the database",
             "schema": {
               "type": "object",
               "properties": {
                 "firstName": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "John"
                 },
                 "lastName": {
-                  "example": "any"
-                },
-                "age": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Doe"
                 },
                 "sex": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Male"
                 },
                 "birthdate": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "01/01/1986"
                 },
                 "email": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "johndoe@example.com"
                 },
                 "phone": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "123-456-7890"
                 },
                 "specialty": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Cardiology"
                 },
                 "isAvailable": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "true"
                 },
                 "npi": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "1234567890"
                 }
-              }
+              },
+              "required": [
+                "firstName",
+                "lastName",
+                "sex",
+                "birthdate",
+                "email",
+                "phone",
+                "specialty",
+                "isAvailable",
+                "npi"
+              ]
             }
           }
         ],
@@ -384,38 +440,45 @@
           {
             "name": "body",
             "in": "body",
+            "description": "Update a doctor in the database.",
             "schema": {
               "type": "object",
               "properties": {
                 "firstName": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "John"
                 },
                 "lastName": {
-                  "example": "any"
-                },
-                "age": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Doe"
                 },
                 "sex": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Male"
                 },
                 "birthdate": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "01/01/1986"
                 },
                 "email": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "johndoe@example.com"
                 },
                 "phone": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "123-456-7890"
                 },
                 "specialty": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Cardiology"
                 },
                 "isAvailable": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "true"
                 },
                 "npi": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "1234567890"
                 }
               }
             }
@@ -517,7 +580,7 @@
         "tags": [
           "Nurses"
         ],
-        "summary": "Get All Nurses (WIP)",
+        "summary": "Get All Nurses",
         "description": "",
         "produces": [
           "application/json"
@@ -526,6 +589,9 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
           }
         }
       },
@@ -533,37 +599,59 @@
         "tags": [
           "Nurses"
         ],
-        "summary": "Add a Nurse (WIP)",
+        "summary": "Add a Nurse",
         "description": "",
         "parameters": [
           {
             "name": "body",
             "in": "body",
+            "description": "Add a new nurse to the database",
             "schema": {
               "type": "object",
               "properties": {
-                "title": {
-                  "example": "any"
+                "firstName": {
+                  "type": "string",
+                  "example": "John"
                 },
-                "releasedate": {
-                  "example": "any"
+                "lastName": {
+                  "type": "string",
+                  "example": "Doe"
                 },
-                "developer": {
-                  "example": "any"
+                "age": {
+                  "type": "number",
+                  "example": 36
                 },
-                "publisher": {
-                  "example": "any"
+                "sex": {
+                  "type": "string",
+                  "example": "Male"
                 },
-                "rating": {
-                  "example": "any"
+                "birthdate": {
+                  "type": "string",
+                  "example": "01/01/1986"
                 },
-                "played": {
-                  "example": "any"
+                "email": {
+                  "type": "string",
+                  "example": "johndoe@example.com"
                 },
-                "score": {
-                  "example": "any"
+                "phone": {
+                  "type": "string",
+                  "example": "123-456-7890"
+                },
+                "shift": {
+                  "type": "string",
+                  "example": "Day"
                 }
-              }
+              },
+              "required": [
+                "firstName",
+                "lastName",
+                "age",
+                "sex",
+                "birthdate",
+                "email",
+                "phone",
+                "shift"
+              ]
             }
           }
         ],
@@ -582,7 +670,7 @@
         "tags": [
           "Nurses"
         ],
-        "summary": "Get Single Nurse by ID (WIP)",
+        "summary": "Get Single Nurse by ID",
         "description": "",
         "produces": [
           "application/json"
@@ -608,7 +696,7 @@
         "tags": [
           "Nurses"
         ],
-        "summary": "Edit Nurse Information (WIP)",
+        "summary": "Edit Nurse Information",
         "description": "",
         "parameters": [
           {
@@ -620,31 +708,53 @@
           {
             "name": "body",
             "in": "body",
+            "description": "Update a nurse in the database",
             "schema": {
               "type": "object",
               "properties": {
-                "title": {
-                  "example": "any"
+                "firstName": {
+                  "type": "string",
+                  "example": "John"
                 },
-                "releasedate": {
-                  "example": "any"
+                "lastName": {
+                  "type": "string",
+                  "example": "Doe"
                 },
-                "developer": {
-                  "example": "any"
+                "age": {
+                  "type": "number",
+                  "example": 36
                 },
-                "publisher": {
-                  "example": "any"
+                "sex": {
+                  "type": "string",
+                  "example": "Male"
                 },
-                "rating": {
-                  "example": "any"
+                "birthdate": {
+                  "type": "string",
+                  "example": "01/01/1986"
                 },
-                "played": {
-                  "example": "any"
+                "email": {
+                  "type": "string",
+                  "example": "johndoe@example.com"
                 },
-                "score": {
-                  "example": "any"
+                "phone": {
+                  "type": "string",
+                  "example": "123-456-7890"
+                },
+                "shift": {
+                  "type": "string",
+                  "example": "Day"
                 }
-              }
+              },
+              "required": [
+                "firstName",
+                "lastName",
+                "age",
+                "sex",
+                "birthdate",
+                "email",
+                "phone",
+                "shift"
+              ]
             }
           }
         ],
@@ -664,7 +774,7 @@
         "tags": [
           "Nurses"
         ],
-        "summary": "Delete a Nurse (WIP)",
+        "summary": "Delete a Nurse",
         "description": "",
         "parameters": [
           {
@@ -692,7 +802,7 @@
         "tags": [
           "Nurses"
         ],
-        "summary": "Get Nurses by Patient ID (WIP)",
+        "summary": "Get Nurses by Patient ID",
         "description": "",
         "produces": [
           "application/json"
@@ -742,31 +852,58 @@
           {
             "name": "body",
             "in": "body",
+            "description": "Add a new Administrator to the database",
             "schema": {
               "type": "object",
               "properties": {
-                "title": {
-                  "example": "any"
+                "firstName": {
+                  "type": "string",
+                  "example": "John"
                 },
-                "releasedate": {
-                  "example": "any"
+                "lastName": {
+                  "type": "string",
+                  "example": "Doe"
                 },
-                "developer": {
-                  "example": "any"
+                "age": {
+                  "type": "number",
+                  "example": 36
                 },
-                "publisher": {
-                  "example": "any"
+                "sex": {
+                  "type": "string",
+                  "example": "Male"
                 },
-                "rating": {
-                  "example": "any"
+                "birthdate": {
+                  "type": "string",
+                  "example": "01/01/1986"
                 },
-                "played": {
-                  "example": "any"
+                "email": {
+                  "type": "string",
+                  "example": "johndoe@example.com"
                 },
-                "score": {
-                  "example": "any"
+                "phone": {
+                  "type": "string",
+                  "example": "123-456-7890"
+                },
+                "department": {
+                  "type": "string",
+                  "example": "IT"
+                },
+                "securityLevel": {
+                  "type": "number",
+                  "example": 1
                 }
-              }
+              },
+              "required": [
+                "firstName",
+                "lastName",
+                "age",
+                "sex",
+                "birthdate",
+                "email",
+                "phone",
+                "department",
+                "securityLevel"
+              ]
             }
           }
         ],
@@ -823,31 +960,58 @@
           {
             "name": "body",
             "in": "body",
+            "description": "Update an administrator in the database.",
             "schema": {
               "type": "object",
               "properties": {
-                "title": {
-                  "example": "any"
+                "firstName": {
+                  "type": "string",
+                  "example": "John"
                 },
-                "releasedate": {
-                  "example": "any"
+                "lastName": {
+                  "type": "string",
+                  "example": "Doe"
                 },
-                "developer": {
-                  "example": "any"
+                "age": {
+                  "type": "number",
+                  "example": 36
                 },
-                "publisher": {
-                  "example": "any"
+                "sex": {
+                  "type": "string",
+                  "example": "Male"
                 },
-                "rating": {
-                  "example": "any"
+                "birthdate": {
+                  "type": "string",
+                  "example": "01/01/1986"
                 },
-                "played": {
-                  "example": "any"
+                "email": {
+                  "type": "string",
+                  "example": "johndoe@example.com"
                 },
-                "score": {
-                  "example": "any"
+                "phone": {
+                  "type": "string",
+                  "example": "123-456-7890"
+                },
+                "department": {
+                  "type": "string",
+                  "example": "IT"
+                },
+                "securityLevel": {
+                  "type": "number",
+                  "example": 1
                 }
-              }
+              },
+              "required": [
+                "firstName",
+                "lastName",
+                "age",
+                "sex",
+                "birthdate",
+                "email",
+                "phone",
+                "department",
+                "securityLevel"
+              ]
             }
           }
         ],
@@ -886,6 +1050,396 @@
           },
           "500": {
             "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Doctor": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "example": "object"
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "firstName": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                }
+              }
+            },
+            "lastName": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                }
+              }
+            },
+            "sex": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                }
+              }
+            },
+            "birthdate": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "format": {
+                  "type": "string",
+                  "example": "date"
+                }
+              }
+            },
+            "email": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "format": {
+                  "type": "string",
+                  "example": "email"
+                }
+              }
+            },
+            "phone": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                }
+              }
+            },
+            "specialty": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                }
+              }
+            },
+            "isAvailable": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "boolean"
+                }
+              }
+            },
+            "npi": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "integer"
+                },
+                "format": {
+                  "type": "string",
+                  "example": "int64"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Patient": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "example": "object"
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "firstName": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                }
+              }
+            },
+            "lastName": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                }
+              }
+            },
+            "sex": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                }
+              }
+            },
+            "birthdate": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "format": {
+                  "type": "string",
+                  "example": "date"
+                }
+              }
+            },
+            "email": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "format": {
+                  "type": "string",
+                  "example": "email"
+                }
+              }
+            },
+            "phone": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                }
+              }
+            },
+            "dxcode": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                }
+              }
+            },
+            "drNpi": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "integer"
+                },
+                "format": {
+                  "type": "string",
+                  "example": "int64"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Nurse": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "example": "object"
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "firstName": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                }
+              }
+            },
+            "lastName": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                }
+              }
+            },
+            "sex": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                }
+              }
+            },
+            "birthdate": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "format": {
+                  "type": "string",
+                  "example": "date"
+                }
+              }
+            },
+            "email": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "format": {
+                  "type": "string",
+                  "example": "email"
+                }
+              }
+            },
+            "phone": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                }
+              }
+            },
+            "shift": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Administrator": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "example": "object"
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "firstName": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                }
+              }
+            },
+            "lastName": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                }
+              }
+            },
+            "sex": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                }
+              }
+            },
+            "birthdate": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "format": {
+                  "type": "string",
+                  "example": "date"
+                }
+              }
+            },
+            "email": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "format": {
+                  "type": "string",
+                  "example": "email"
+                }
+              }
+            },
+            "phone": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                }
+              }
+            },
+            "department": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                }
+              }
+            },
+            "securityLevel": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "integer"
+                },
+                "format": {
+                  "type": "string",
+                  "example": "int64"
+                }
+              }
+            }
           }
         }
       }

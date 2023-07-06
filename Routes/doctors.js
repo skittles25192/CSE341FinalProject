@@ -22,10 +22,40 @@ router.get('/isAvailable',
 
 router.post('/',
     // #swagger.tags = ['Doctors']
+    /*  #swagger.parameters['body'] = {
+          in: 'body',
+          description: 'Add a new doctor to the database',
+          schema: {
+			$firstName: 'John',
+			$lastName: 'Doe',
+			$sex: 'Male',
+			$birthdate: '01/01/1986',
+			$email: 'johndoe@example.com',
+			$phone: '123-456-7890',
+			$specialty: 'Cardiology',
+			$isAvailable: 'true',
+			$npi: '1234567890'
+          }
+  } */
     validation.validateDoctor, doctorsController.createDoctor);
     
 router.put('/:id', 
     // #swagger.tags = ['Doctors']
+    /*  #swagger.parameters['body'] = {
+          in: 'body',
+          description: 'Update a doctor in the database.',
+          schema: {
+			firstName: 'John',
+			lastName: 'Doe',
+			sex: 'Male',
+			birthdate: '01/01/1986',
+			email: 'johndoe@example.com',
+			phone: '123-456-7890',
+			specialty: 'Cardiology',
+			isAvailable: 'true',
+			npi: '1234567890'
+          }
+  } */
     validation.validateDoctor, doctorsController.updateDoctor);
 
 router.delete('/:id', 

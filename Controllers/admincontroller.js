@@ -4,7 +4,7 @@ const ObjectId = require('mongodb').ObjectId;
 const getAllAdmins = async (req, res, next) => {
     // #swagger.tags = ['Admins']
     // #swagger.summary = 'Get All Administrators (WIP)'
-  const result = await mongodb.getDb().db("Games").collection('games').find({});
+  const result = await mongodb.getDb().db("Hospital").collection('admins').find({});
   console.log(result);
   result.toArray().then((lists) => {
     res.setHeader('Content-Type', 'application/json');
@@ -16,14 +16,14 @@ const getSingleAdmin = async (req, res) => {
     // #swagger.tags = ['Admins']
     // #swagger.summary = 'Get Single Administrator by ID (WIP)'
   if (!ObjectId.isValid(req.params.id)) {
-    res.status(400).json('Must use a valid id to find a game.');
+    res.status(400).json('Must use a valid id to find an admin.');
   }
 
   const userId = new ObjectId(req.params.id);
   const result = await mongodb
   .getDb()
-  .db("Games")
-  .collection('games')
+  .db("Hospital")
+  .collection('admins')
   .find({ _id: userId });
 result.toArray().then((lists) => {
     res.setHeader('Content-Type', 'application/json');
@@ -34,16 +34,32 @@ result.toArray().then((lists) => {
 const addAdmin = async (req, res) => {
     // #swagger.tags = ['Admins']
     // #swagger.summary = 'Add Administrator (WIP)'
-  const game = {
-    title: req.body.title,
-    releasedate: req.body.releasedate,
-    developer: req.body.developer,
-    publisher: req.body.publisher,
-    rating: req.body.rating,
-    played: req.body.played,
-    score: req.body.score
+    /*  #swagger.parameters['body'] = {
+          in: 'body',
+          description: 'Add a new Administrator to the database',
+          schema: {
+			$firstName: 'John',
+			$lastName: 'Doe',
+			$age: 36,
+			$sex: 'Male',
+			$birthdate: '01/01/1986',
+			$email: 'johndoe@example.com',
+			$phone: '123-456-7890',
+			$department: 'IT',
+			$securityLevel: 1
+          }
+  } */
+    
+  const admin = {
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    sex: req.body.sex,
+    birthdate: req.body.birthdate,
+    email: req.body.email,
+    phone: req.body.phone,
+    securityLevel: req.body.securityLevel
   };
-  const response = await mongodb.getDb().db("Games").collection('games').insertOne(game);
+  const response = await mongodb.getDb().db("Hospital").collection('admins').insertOne(admin);
   if (response.acknowledged) {
     res.status(201).json(response);
   } else {
@@ -54,20 +70,35 @@ const addAdmin = async (req, res) => {
 const editAdmin = async (req, res) => {
     // #swagger.tags = ['Admins']
     // #swagger.summary = 'Edit Administrator Information (WIP)'
+    /*  #swagger.parameters['body'] = {
+          in: 'body',
+          description: 'Update an administrator in the database.',
+          schema: {
+			$firstName: 'John',
+			$lastName: 'Doe',
+			$age: 36,
+			$sex: 'Male',
+			$birthdate: '01/01/1986',
+			$email: 'johndoe@example.com',
+			$phone: '123-456-7890',
+			$department: 'IT',
+			$securityLevel: 1
+          }
+  } */
   if (!ObjectId.isValid(req.params.id)) {
-    res.status(400).json('Must use a valid id to find a game.');
+    res.status(400).json('Must use a valid id to find an Admin.');
   }
   const userId = new ObjectId(req.params.id);
-  const game = {
-    title: req.body.title,
-    releasedate: req.body.releasedate,
-    developer: req.body.developer,
-    publisher: req.body.publisher,
-    rating: req.body.rating,
-    played: req.body.played,
-    score: req.body.score
+  const admin = {
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    sex: req.body.sex,
+    birthdate: req.body.birthdate,
+    email: req.body.email,
+    phone: req.body.phone,
+    securityLevel: req.body.securityLevel
   };
-  const response = await mongodb.getDb().db("Games").collection('games').replaceOne({ _id: userId }, game);
+  const response = await mongodb.getDb().db("Hospital").collection('admins').replaceOne({ _id: userId }, admin);
   console.log(response);
   if (response.modifiedCount > 0) {
     res.status(204).send();
@@ -80,10 +111,10 @@ const deleteAdmin = async (req, res) => {
     // #swagger.tags = ['Admins']
     // #swagger.summary = 'Delete Administrator (WIP)'
   if (!ObjectId.isValid(req.params.id)) {
-    res.status(400).json('Must use a valid id to find a game.');
+    res.status(400).json('Must use a valid id to find an Admin.');
   }
   const userId = new ObjectId(req.params.id);
-  const response = await mongodb.getDb().db("Games").collection('games').remove({ _id: userId }, true);
+  const response = await mongodb.getDb().db("Hospital").collection('admins').deleteOne({ _id: userId }, true);
   console.log(response);
   if (response.deletedCount > 0) {
     res.status(204).send();

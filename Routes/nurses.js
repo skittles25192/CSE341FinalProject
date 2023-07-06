@@ -18,10 +18,38 @@ router.get('/bypatient/:id',
 
 router.post('/', 
     // #swagger.tags = ['Nurses']
+  /*  #swagger.parameters['body'] = {
+          in: 'body',
+          description: 'Add a new nurse to the database',
+          schema: {
+			$firstName: 'John',
+			$lastName: 'Doe',
+			$age: 36,
+			$sex: 'Male',
+			$birthdate: '01/01/1986',
+			$email: 'johndoe@example.com',
+			$phone: '123-456-7890',
+			$shift: 'Day'
+          }
+  } */
     nursesController.addNurse);
 
 router.put('/:id', 
     // #swagger.tags = ['Nurses']
+  /*  #swagger.parameters['body'] = {
+          in: 'body',
+          description: 'Update a nurse in the database',
+          schema: {
+			$firstName: 'John',
+			$lastName: 'Doe',
+			$age: 36,
+			$sex: 'Male',
+			$birthdate: '01/01/1986',
+			$email: 'johndoe@example.com',
+			$phone: '123-456-7890',
+			$shift: 'Day'
+          }
+  } */
     nursesController.editNurse);
 
 router.delete('/:id', 

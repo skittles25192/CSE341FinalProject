@@ -2,63 +2,80 @@ const mongodb = require('../Database/mongodbconnect');
 const ObjectId = require('mongodb').ObjectId;
 
 const getAllNurses = async (req, res, next) => {
-  // #swagger.summary = 'Get All Nurses (WIP)'
-  const result = await mongodb.getDb().db("Games").collection('games').find({});
-  console.log(result);
-  result.toArray().then((lists) => {
+  // #swagger.summary = 'Get All Nurses'
+  const result = await mongodb.getDb().db("Hospial").collection('nuses').find({});
+  try {
+    lists = await result.toArray();
+    if (!lists.length > 0) {
+      throw new Error('No data found. Check if you have misspelled anything or add documents to the collection.');
+    }
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(lists);
-  });
+  } catch(error) {
+    res.status(400).json(error.message || 'an error happened while getting posts');
+  }
 };
 
 const getSingleNurse = async (req, res) => {
-  // #swagger.summary = 'Get Single Nurse by ID (WIP)'
+  // #swagger.summary = 'Get Single Nurse by ID'
   if (!ObjectId.isValid(req.params.id)) {
-    res.status(400).json('Must use a valid id to find a game.');
+    res.status(400).json('Must use a valid id to find a nurse.');
   }
 
   const userId = new ObjectId(req.params.id);
   const result = await mongodb
   .getDb()
-  .db("Games")
-  .collection('games')
+  .db("Hospital")
+  .collection('nurses')
   .find({ _id: userId });
-result.toArray().then((lists) => {
+  try {
+    lists = await result.toArray();
+    if (!lists.length > 0) {
+      throw new Error('No data found. Check if you have misspelled anything or add documents to the collection.');
+    }
     res.setHeader('Content-Type', 'application/json');
-    res.status(200).json(lists[0]);
-  });
+    res.status(200).json(lists);
+  } catch(error) {
+    res.status(400).json(error.message || 'an error happened while getting posts');
+  }
 };
 
 const getNursesByPatient = async (req, res) => {
-  // #swagger.summary = 'Get Nurses by Patient ID (WIP)'
+  // #swagger.summary = 'Get Nurses by Patient ID'
   if (!ObjectId.isValid(req.params.id)) {
-    res.status(400).json('Must use a valid id to find a game.');
+    res.status(400).json('Must use a valid id to find a nurse.');
   }
 
   const userId = new ObjectId(req.params.id);
   const result = await mongodb
   .getDb()
-  .db("Games")
-  .collection('games')
+  .db("Hospital")
+  .collection('nurses')
   .find({ _id: userId });
-result.toArray().then((lists) => {
+  try {
+    lists = await result.toArray();
+    if (!lists.length > 0) {
+      throw new Error('No data found. Check if you have misspelled anything or add documents to the collection.');
+    }
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(lists);
-  });
+  } catch(error) {
+    res.status(400).json(error.message || 'an error happened while getting posts');
+  }
 };
 
 const addNurse = async (req, res) => {
-  // #swagger.summary = 'Add a Nurse (WIP)'
-  const game = {
-    title: req.body.title,
-    releasedate: req.body.releasedate,
-    developer: req.body.developer,
-    publisher: req.body.publisher,
-    rating: req.body.rating,
-    played: req.body.played,
-    score: req.body.score
+  // #swagger.summary = 'Add a Nurse'
+  const nurse = {
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    sex: req.body.sex,
+    birthdate: req.body.birthdate,
+    email: req.body.email,
+    phone: req.body.phone,
+    shift: req.body.shift
   };
-  const response = await mongodb.getDb().db("Games").collection('games').insertOne(game);
+  const response = await mongodb.getDb().db("Hospital").collection('nurses').insertOne(nurse);
   if (response.acknowledged) {
     res.status(201).json(response);
   } else {
@@ -67,21 +84,21 @@ const addNurse = async (req, res) => {
 };
 
 const editNurse = async (req, res) => {
-  // #swagger.summary = 'Edit Nurse Information (WIP)'
+  // #swagger.summary = 'Edit Nurse Information'
   if (!ObjectId.isValid(req.params.id)) {
-    res.status(400).json('Must use a valid id to find a game.');
+    res.status(400).json('Must use a valid id to find a nurse.');
   }
   const userId = new ObjectId(req.params.id);
-  const game = {
-    title: req.body.title,
-    releasedate: req.body.releasedate,
-    developer: req.body.developer,
-    publisher: req.body.publisher,
-    rating: req.body.rating,
-    played: req.body.played,
-    score: req.body.score
+  const nurse = {
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    sex: req.body.sex,
+    birthdate: req.body.birthdate,
+    email: req.body.email,
+    phone: req.body.phone,
+    shift: req.body.shift
   };
-  const response = await mongodb.getDb().db("Games").collection('games').replaceOne({ _id: userId }, game);
+  const response = await mongodb.getDb().db("Hospital").collection('nurses').replaceOne({ _id: userId }, nurse);
   console.log(response);
   if (response.modifiedCount > 0) {
     res.status(204).send();
@@ -91,12 +108,12 @@ const editNurse = async (req, res) => {
 };
 
 const deleteNurse = async (req, res) => {
-  // #swagger.summary = 'Delete a Nurse (WIP)'
+  // #swagger.summary = 'Delete a Nurse'
   if (!ObjectId.isValid(req.params.id)) {
-    res.status(400).json('Must use a valid id to find a game.');
+    res.status(400).json('Must use a valid id to find a nurse.');
   }
   const userId = new ObjectId(req.params.id);
-  const response = await mongodb.getDb().db("Games").collection('games').remove({ _id: userId }, true);
+  const response = await mongodb.getDb().db("Hospital").collection('nurses').deleteOne({_id: userId});
   console.log(response);
   if (response.deletedCount > 0) {
     res.status(204).send();
