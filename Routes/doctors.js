@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const validation = require('../middleware/validate');
+const {requiresAuth } = require('express-openid-connect');
+
 
 const doctorsController = require('../Controllers/doctorscontroller');
 
@@ -37,7 +39,7 @@ router.post('/',
 			$npi: '1234567890'
           }
   } */
-    validation.validateDoctor, doctorsController.createDoctor);
+  requiresAuth(),  validation.validateDoctor, doctorsController.createDoctor);
     
 router.put('/:id', 
     // #swagger.tags = ['Doctors']
@@ -56,7 +58,7 @@ router.put('/:id',
 			npi: '1234567890'
           }
   } */
-    validation.validateDoctor, doctorsController.updateDoctor);
+   requiresAuth(), validation.validateDoctor, doctorsController.updateDoctor);
 
 router.delete('/:id', 
     // #swagger.tags = ['Doctors']

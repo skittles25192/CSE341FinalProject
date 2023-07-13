@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const validation = require('../middleware/validate');
+const {requiresAuth } = require('express-openid-connect');
+
 
 const nursesController = require('../Controllers/nursescontroller');
 
@@ -31,7 +33,7 @@ router.post('/',
 			$shift: 'Day'
           }
   } */
-    nursesController.addNurse);
+  requiresAuth(),  nursesController.addNurse);
 
 router.put('/:id', 
     // #swagger.tags = ['Nurses']
@@ -48,10 +50,10 @@ router.put('/:id',
 			$shift: 'Day'
           }
   } */
-    nursesController.editNurse);
+   requiresAuth(), nursesController.editNurse);
 
 router.delete('/:id', 
     // #swagger.tags = ['Nurses']
-    nursesController.deleteNurse);
+   requiresAuth(), nursesController.deleteNurse);
 
 module.exports = router;
