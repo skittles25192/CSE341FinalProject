@@ -2,6 +2,11 @@ const request = require('supertest');
 const app = require('../server');
 const mongodb = require('../Database/mongodbconnect');
 
+jest.mock('express-openid-connect', () => ({
+  auth: jest.fn(() => (req, res, next) => next()),
+  requiresAuth: jest.fn(() => (req, res, next) => next()),
+}));
+
 describe('Patients Routes', () => {
 
     let testId
