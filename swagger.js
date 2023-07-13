@@ -38,7 +38,7 @@ const doc = {
         email: { type: 'string', format: 'email' },
         phone: { type: 'string' },
         dxcode: { type: 'string' },
-        drNpi: { type: 'integer', format: 'int64' },
+        npi: { type: 'integer', format: 'int64' },
       },
     },
     Nurse: {

@@ -60,8 +60,6 @@ const validatePatient = (req, res, next) => {
   };
 
   validator(req.body, validationRule, {}, (err, status) => {
-    console.log(req.body)
-
     if (!status) {
       res.status(412).send({
         success: false,
