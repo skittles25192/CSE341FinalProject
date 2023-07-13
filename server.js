@@ -13,7 +13,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 require('dotenv').config();
 const config = {
-  authRequired: true,
+  authRequired: false,
   auth0Logout: true,
   secret: process.env.secret,
   baseURL: process.env.baseURL,
