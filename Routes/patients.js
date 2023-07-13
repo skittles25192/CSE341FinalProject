@@ -17,7 +17,7 @@ router.post('/',
             $email: 'email@email.com',
             $phone: '555-555-5555',
             dxcode: 'R41. 3',
-            npi: '6155382000'
+            npi: '1234567890'
           }
   } */
   validation.validatePatient, patientscontroller.createPatient);
@@ -35,7 +35,7 @@ router.put('/:id',
             email: 'email@email.com',
             phone: '555-555-5555',
             dxcode: 'R41. 3',
-            npi: '6155382000'
+            npi: '1234567890'
           }
   } */
   validation.validatePatient, patientscontroller.updatePatient);
