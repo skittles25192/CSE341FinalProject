@@ -113,7 +113,7 @@ const getByDr = async (req, res) => {
     .find({ dxcode: patients });
   result.toArray().then((lists) => {
       res.setHeader('Content-Type', 'application/json');
-      res.status(200).json(lists[0]);
+      res.status(200).json(lists);
     });
   };
 
