@@ -51,7 +51,6 @@ const addAdmin = async (req, res) => {
           schema: {
 			$firstName: 'John',
 			$lastName: 'Doe',
-			$age: 36,
 			$sex: 'Male',
 			$birthdate: '01/01/1986',
 			$email: 'johndoe@example.com',
@@ -87,7 +86,6 @@ const editAdmin = async (req, res) => {
           schema: {
 			$firstName: 'John',
 			$lastName: 'Doe',
-			$age: 36,
 			$sex: 'Male',
 			$birthdate: '01/01/1986',
 			$email: 'johndoe@example.com',

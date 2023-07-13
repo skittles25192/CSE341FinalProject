@@ -1,9 +1,9 @@
 const request = require('supertest');
-const app = require('../app');
+const server = require('../server');
 
 describe('Patients Routes', () => {
   it('should create a new patient', async () => {
-    const response = await request(app)
+    const response = await request(server)
       .post('/patients')
       .send({
         firstName: 'John',
@@ -22,7 +22,7 @@ describe('Patients Routes', () => {
   });
 
   it('should update a patient', async () => {
-    const response = await request(app)
+    const response = await request(server)
       .put('/patients/1') // Add Proper ID here
       .send({
         firstName: 'John',
@@ -40,7 +40,7 @@ describe('Patients Routes', () => {
   });
 
   it('should get all patients', async () => {
-    const response = await request(app).get('/patients');
+    const response = await request(server).get('/patients');
 
     expect(res.statusCode).toBe(200);
     expect(res.body.length).toBeGreaterThan(0);
@@ -48,7 +48,7 @@ describe('Patients Routes', () => {
   });
 
   it('should get a patient by id', async () => {
-    const response = await request(app).get('/patients/1'); // Add Proper ID here
+    const response = await request(server).get('/patients/1'); // Add Proper ID here
 
     expect(res.statusCode).toBe(200);
     expect(res.body.firstName).toBe('John');
@@ -56,7 +56,7 @@ describe('Patients Routes', () => {
   });
 
   it('should get patients by doctor NPI', async () => {
-    const response = await request(app).get('/patients/byDoctor/1234567890');
+    const response = await request(server).get('/patients/byDoctor/1234567890');
 
     expect(res.statusCode).toBe(200);
     expect(res.body.length).toBeGreaterThan(0);
@@ -64,7 +64,7 @@ describe('Patients Routes', () => {
   });
 
   it('should get patients by diagnosis code', async () => {
-    const response = await request(app).get('/patients/byDiagnosis/R41.3');
+    const response = await request(server).get('/patients/byDiagnosis/R41.3');
 
     expect(res.statusCode).toBe(200);
     expect(res.body.length).toBeGreaterThan(0);
@@ -72,7 +72,7 @@ describe('Patients Routes', () => {
   });
 
   it('should delete a patient', async () => {
-    const response = await request(app).delete('/patients/1'); // Add Proper ID here
+    const response = await request(server).delete('/patients/1'); // Add Proper ID here
 
     expect(res.statusCode).toBe(204);
 
