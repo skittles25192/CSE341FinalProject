@@ -34,7 +34,7 @@ const getSingleNurse = async (req, res) => {
       throw new Error('No data found. Check if you have misspelled anything or add documents to the collection.');
     }
     res.setHeader('Content-Type', 'application/json');
-    res.status(200).json(lists);
+    res.status(200).json(lists[0]);
   } catch(error) {
     res.status(400).json(error.message || 'an error happened while getting posts');
   }
