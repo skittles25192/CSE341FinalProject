@@ -18,7 +18,7 @@ router.get('/bypatient/:id',
     // #swagger.tags = ['Doctors']
     doctorsController.getByPatient);
 
-router.get('/isAvailable', 
+router.get('/check/isAvailable', 
     // #swagger.tags = ['Doctors']
     doctorsController.getAvailable);
 

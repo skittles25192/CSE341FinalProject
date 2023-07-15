@@ -69,12 +69,12 @@ describe('Doctors Routes', () => {
         expect(response.body.length).toBeGreaterThan(0);
     });
 
-    // it('should get available doctors', async () => {
-    //     const response = await request(app).get('/doctors/isAvailable');
+    it('should get available doctors', async () => {
+        const response = await request(app).get('/doctors/check/isAvailable');
 
-    //     expect(response.statusCode).toBe(200);
-    //     expect(response.body.length).toBeGreaterThan(0);
-    // });
+        expect(response.statusCode).toBe(200);
+        expect(response.body.length).toBeGreaterThan(0);
+    });
 
     it('should get a doctor by id', async () => {
         const response = await request(app).get('/doctors/' + testId);
