@@ -81,7 +81,7 @@
                 },
                 "npi": {
                   "type": "string",
-                  "example": "6155382000"
+                  "example": "1234567890"
                 }
               },
               "required": [
@@ -175,7 +175,7 @@
                 },
                 "npi": {
                   "type": "string",
-                  "example": "6155382000"
+                  "example": "1234567890"
                 }
               }
             }
@@ -557,7 +557,7 @@
         }
       }
     },
-    "/doctors/isAvailable": {
+    "/doctors/check/isAvailable": {
       "get": {
         "tags": [
           "Doctors"
@@ -620,10 +620,6 @@
                   "type": "string",
                   "example": "Doe"
                 },
-                "age": {
-                  "type": "number",
-                  "example": 36
-                },
                 "sex": {
                   "type": "string",
                   "example": "Male"
@@ -648,7 +644,6 @@
               "required": [
                 "firstName",
                 "lastName",
-                "age",
                 "sex",
                 "birthdate",
                 "email",
@@ -723,10 +718,6 @@
                   "type": "string",
                   "example": "Doe"
                 },
-                "age": {
-                  "type": "number",
-                  "example": 36
-                },
                 "sex": {
                   "type": "string",
                   "example": "Male"
@@ -751,7 +742,6 @@
               "required": [
                 "firstName",
                 "lastName",
-                "age",
                 "sex",
                 "birthdate",
                 "email",
@@ -870,10 +860,6 @@
                   "type": "string",
                   "example": "Doe"
                 },
-                "age": {
-                  "type": "number",
-                  "example": 36
-                },
                 "sex": {
                   "type": "string",
                   "example": "Male"
@@ -902,7 +888,6 @@
               "required": [
                 "firstName",
                 "lastName",
-                "age",
                 "sex",
                 "birthdate",
                 "email",
@@ -978,10 +963,6 @@
                   "type": "string",
                   "example": "Doe"
                 },
-                "age": {
-                  "type": "number",
-                  "example": 36
-                },
                 "sex": {
                   "type": "string",
                   "example": "Male"
@@ -1010,7 +991,6 @@
               "required": [
                 "firstName",
                 "lastName",
-                "age",
                 "sex",
                 "birthdate",
                 "email",
@@ -1250,7 +1230,7 @@
                 }
               }
             },
-            "drNpi": {
+            "npi": {
               "type": "object",
               "properties": {
                 "type": {
