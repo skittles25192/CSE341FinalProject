@@ -83,12 +83,11 @@ describe('Doctors Routes', () => {
         expect(response.body._id).toBe(testId);
     });
 
-      it('should get doctors by patient id', async () => {
-        const response = await request(app).get('/doctors/bypatient/64a701be1188db6c982d2b56'); // Curently just a get by id.
+    it('should get doctors by patient id', async () => {
+        const response = await request(app).get('/doctors/bypatient/64b0424254c1077c9835f0d1');
 
         expect(response.statusCode).toBe(200);
-        expect(response.body.length).toBeGreaterThan(0);
-      });
+    });
 
 
     it('should delete a doctor', async () => {
@@ -102,80 +101,80 @@ describe('Doctors Routes', () => {
 describe('Patients Routes', () => {
 
     let testId
-  
-    it('should create a new patient', async () => {
-      const response = await request(app)
-        .post('/patients')
-        .send({
-          firstName: 'John',
-          lastName: 'Doe',
-          sex: 'M',
-          birthdate: '10/10/1997',
-          email: 'john.doe@example.com',
-          phone: '555-555-5555',
-          dxcode: 'R41.3',
-          npi: '1234567890'
-        });
-  
-      expect(response.statusCode).toBe(201);
-      expect(response.body.acknowledged).toBe(true);
-      testId = response.body.insertedId;
-    });
-  
-    it('should update a patient', async () => {
-      const response = await request(app)
-        .put('/patients/' + testId)
-        .send({
-          firstName: 'John',
-          lastName: 'Doe',
-          sex: 'M',
-          birthdate: '10/10/1997',
-          email: 'john.doe@example.com',
-          phone: '555-555-5555',
-          dxcode: 'R41.3',
-          npi: '1234567890'
-        });
-  
-      expect(response.statusCode).toBe(204);
-    });
-  
-    it('should get all patients', async () => {
-      const response = await request(app).get('/patients');
-  
-      expect(response.statusCode).toBe(200);
-      expect(response.body.length).toBeGreaterThan(0);
-    });
-  
-    it('should get a patient by id', async () => {
-      const response = await request(app).get('/patients/' + testId);
-  
-      expect(response.statusCode).toBe(200);
-      expect(response.body._id).toBe(testId);
-    });
-  
-    it('should get patients by doctor NPI', async () => {
-      const response = await request(app).get('/patients/byDoctor/1234567890');
-  
-      expect(response.statusCode).toBe(200);
-      expect(response.body.length).toBeGreaterThan(0);
-    });
-  
-    it('should get patients by diagnosis code', async () => {
-      const response = await request(app).get('/patients/byDiagnosis/R41.3');
-  
-      expect(response.statusCode).toBe(200);
-      expect(response.body.length).toBeGreaterThan(0);
-    });
-  
-    it('should delete a patient', async () => {
-      const response = await request(app).delete('/patients/' + testId);
-  
-      expect(response.statusCode).toBe(204);
-    });
-  
-  });
 
-  describe('Nurses Routes', () => {
+    it('should create a new patient', async () => {
+        const response = await request(app)
+            .post('/patients')
+            .send({
+                firstName: 'John',
+                lastName: 'Doe',
+                sex: 'M',
+                birthdate: '10/10/1997',
+                email: 'john.doe@example.com',
+                phone: '555-555-5555',
+                dxcode: 'R41.3',
+                npi: '1234567890'
+            });
+
+        expect(response.statusCode).toBe(201);
+        expect(response.body.acknowledged).toBe(true);
+        testId = response.body.insertedId;
+    });
+
+    it('should update a patient', async () => {
+        const response = await request(app)
+            .put('/patients/' + testId)
+            .send({
+                firstName: 'John',
+                lastName: 'Doe',
+                sex: 'M',
+                birthdate: '10/10/1997',
+                email: 'john.doe@example.com',
+                phone: '555-555-5555',
+                dxcode: 'R41.3',
+                npi: '1234567890'
+            });
+
+        expect(response.statusCode).toBe(204);
+    });
+
+    it('should get all patients', async () => {
+        const response = await request(app).get('/patients');
+
+        expect(response.statusCode).toBe(200);
+        expect(response.body.length).toBeGreaterThan(0);
+    });
+
+    it('should get a patient by id', async () => {
+        const response = await request(app).get('/patients/' + testId);
+
+        expect(response.statusCode).toBe(200);
+        expect(response.body._id).toBe(testId);
+    });
+
+    it('should get patients by doctor NPI', async () => {
+        const response = await request(app).get('/patients/byDoctor/1234567890');
+
+        expect(response.statusCode).toBe(200);
+        expect(response.body.length).toBeGreaterThan(0);
+    });
+
+    it('should get patients by diagnosis code', async () => {
+        const response = await request(app).get('/patients/byDiagnosis/R41.3');
+
+        expect(response.statusCode).toBe(200);
+        expect(response.body.length).toBeGreaterThan(0);
+    });
+
+    it('should delete a patient', async () => {
+        const response = await request(app).delete('/patients/' + testId);
+
+        expect(response.statusCode).toBe(204);
+    });
+
+});
+
+describe('Nurses Routes', () => {
 
     let testId
 
@@ -227,12 +226,12 @@ describe('Patients Routes', () => {
         expect(response.body._id).toBe(testId);
     });
 
-    //   it('should get nurses by patient id', async () => {
-    //     const response = await request(app).get('/nurses/bypatient/');
+    it('should get nurses by patient id', async () => {
+        const response = await request(app).get('/nurses/bypatient/' + testId);
 
-    //     expect(response.statusCode).toBe(200);
-    //     expect(response.body.length).toBeGreaterThan(0);
-    //   });
+        expect(response.statusCode).toBe(200);
+        expect(response.body.length).toBeGreaterThan(0);
+    });
 
 
     it('should delete a nurse', async () => {
@@ -244,7 +243,7 @@ describe('Patients Routes', () => {
 
 });
 
-  describe('admins Routes', () => {
+describe('admins Routes', () => {
 
     let testId
 

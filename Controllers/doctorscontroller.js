@@ -47,18 +47,26 @@ const getByPatient = async (req, res) => {
   }
 
   const userId = new ObjectId(req.params.id);
-  const result = await mongodb
+  const patientResult = await mongodb
   .getDb()
   .db("Hospital")
-  .collection('doctors')
+  .collection('patients')
   .find({ _id: userId });
   try {
-    lists = await result.toArray();
-    if (!lists.length > 0) {
+    patient = await patientResult.toArray();
+    if (!patient.length > 0) {
       throw new Error('No data found. Check if you have misspelled anything or add documents to the collection.');
     }
+
+    const result = await mongodb
+    .getDb()
+    .db("Hospital")
+    .collection('doctors')
+    .find({ npi: patient[0].npi });
+    lists = await result.toArray();
     res.setHeader('Content-Type', 'application/json');
-    res.status(200).json(lists);
+    console.log(lists[0])
+    res.status(200).json(lists[0]);
   } catch(error) {
     res.status(400).json(error.message || 'an error happened while getting posts');
   }
