@@ -43,26 +43,38 @@ const getSingleNurse = async (req, res) => {
 const getNursesByPatient = async (req, res) => {
   // #swagger.summary = 'Get Nurses by Patient ID'
   if (!ObjectId.isValid(req.params.id)) {
-    res.status(400).json('Must use a valid id to find a nurse.');
+    res.status(400).json('Must use a valid id to find a doctor.');
   }
 
   const userId = new ObjectId(req.params.id);
+  const patientResult = await mongodb
+  .getDb()
+  .db("Hospital")
+  .collection('patients')
+  .find({ _id: userId });
+  try {
+    patient = await patientResult.toArray();
+    if (!patient.length > 0) {
+      throw new Error('No data found. Check if you have misspelled anything or add documents to the collection.');
+    }
+
+
   const result = await mongodb
   .getDb()
   .db("Hospital")
   .collection('nurses')
-  .find({ _id: userId });
-  try {
+.find({ _id: patient[0].nurseId });
     lists = await result.toArray();
     if (!lists.length > 0) {
       throw new Error('No data found. Check if you have misspelled anything or add documents to the collection.');
     }
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(lists);
-  } catch(error) {
+  } 
+  catch(error) {
     res.status(400).json(error.message || 'an error happened while getting posts');
-  }
-};
+  }}
+;
 
 const addNurse = async (req, res) => {
   // #swagger.summary = 'Add a Nurse'

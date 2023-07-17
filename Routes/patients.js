@@ -20,6 +20,8 @@ router.post('/',
             $phone: '555-555-5555',
             dxcode: 'R41. 3',
             npi: '1234567890'
+            nurseId: '64b570b1450cf9dd3935c385'
+
           }
   } */
   requiresAuth(), validation.validatePatient, patientscontroller.createPatient);
@@ -38,6 +40,8 @@ router.put('/:id',
             phone: '555-555-5555',
             dxcode: 'R41. 3',
             npi: '1234567890'
+            nurseId: '64b570b1450cf9dd3935c385'
+
           }
   } */
   requiresAuth(), validation.validatePatient, patientscontroller.updatePatient);

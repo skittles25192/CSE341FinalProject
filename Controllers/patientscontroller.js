@@ -12,7 +12,9 @@ const createPatient = async (req, res) => {
       email: req.body.email,
       phone: req.body.phone,
       dxcode: req.body.dxcode,
-      npi: req.body.npi
+      npi: req.body.npi,
+      nurseId: new ObjectId(req.body.nurseId)
+
     };
     const response = await mongodb.getDb().db("Hospital").collection('patients').insertOne(patient);
     if (response.acknowledged) {
@@ -40,7 +42,9 @@ const createPatient = async (req, res) => {
       email: req.body.email,
       phone: req.body.phone,
       dxcode: req.body.dxcode,
-      npi: req.body.npi
+      npi: req.body.npi,
+      nurseId: new ObjectId(req.body.nurseId)
+
 
     };
     const response = await mongodb.getDb().db("Hospital").collection('patients').replaceOne({ _id: userId }, patient);

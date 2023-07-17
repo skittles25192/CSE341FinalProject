@@ -47,51 +47,40 @@
           {
             "name": "body",
             "in": "body",
-            "description": "Add a new patient to the database.",
             "schema": {
               "type": "object",
               "properties": {
                 "firstName": {
-                  "type": "string",
-                  "example": "John"
+                  "example": "any"
                 },
                 "lastName": {
-                  "type": "string",
-                  "example": "Doe"
+                  "example": "any"
+                },
+                "age": {
+                  "example": "any"
                 },
                 "sex": {
-                  "type": "string",
-                  "example": "M"
+                  "example": "any"
                 },
                 "birthdate": {
-                  "type": "string",
-                  "example": "10/10/1997"
+                  "example": "any"
                 },
                 "email": {
-                  "type": "string",
-                  "example": "email@email.com"
+                  "example": "any"
                 },
                 "phone": {
-                  "type": "string",
-                  "example": "555-555-5555"
+                  "example": "any"
                 },
                 "dxcode": {
-                  "type": "string",
-                  "example": "R41. 3"
+                  "example": "any"
                 },
                 "npi": {
-                  "type": "string",
-                  "example": "1234567890"
+                  "example": "any"
+                },
+                "nurseId": {
+                  "example": "any"
                 }
-              },
-              "required": [
-                "firstName",
-                "lastName",
-                "sex",
-                "birthdate",
-                "email",
-                "phone"
-              ]
+              }
             }
           }
         ],
@@ -141,41 +130,38 @@
           {
             "name": "body",
             "in": "body",
-            "description": "Update a patient in the database.",
             "schema": {
               "type": "object",
               "properties": {
                 "firstName": {
-                  "type": "string",
-                  "example": "John"
+                  "example": "any"
                 },
                 "lastName": {
-                  "type": "string",
-                  "example": "Doe"
+                  "example": "any"
+                },
+                "age": {
+                  "example": "any"
                 },
                 "sex": {
-                  "type": "string",
-                  "example": "M"
+                  "example": "any"
                 },
                 "birthdate": {
-                  "type": "string",
-                  "example": "10/10/1997"
+                  "example": "any"
                 },
                 "email": {
-                  "type": "string",
-                  "example": "email@email.com"
+                  "example": "any"
                 },
                 "phone": {
-                  "type": "string",
-                  "example": "555-555-5555"
+                  "example": "any"
                 },
                 "dxcode": {
-                  "type": "string",
-                  "example": "R41. 3"
+                  "example": "any"
                 },
                 "npi": {
-                  "type": "string",
-                  "example": "1234567890"
+                  "example": "any"
+                },
+                "nurseId": {
+                  "example": "any"
                 }
               }
             }

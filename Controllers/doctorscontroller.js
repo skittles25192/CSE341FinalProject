@@ -65,7 +65,6 @@ const getByPatient = async (req, res) => {
     .find({ npi: patient[0].npi });
     lists = await result.toArray();
     res.setHeader('Content-Type', 'application/json');
-    console.log(lists[0])
     res.status(200).json(lists[0]);
   } catch(error) {
     res.status(400).json(error.message || 'an error happened while getting posts');
