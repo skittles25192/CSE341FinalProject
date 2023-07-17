@@ -19,7 +19,7 @@ router.post('/',
             $email: 'email@email.com',
             $phone: '555-555-5555',
             dxcode: 'R41. 3',
-            npi: '1234567890'
+            npi: '1234567890',
             nurseId: '64b570b1450cf9dd3935c385'
 
           }
@@ -39,7 +39,7 @@ router.put('/:id',
             email: 'email@email.com',
             phone: '555-555-5555',
             dxcode: 'R41. 3',
-            npi: '1234567890'
+            npi: '1234567890',
             nurseId: '64b570b1450cf9dd3935c385'
 
           }
