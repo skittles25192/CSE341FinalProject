@@ -56,9 +56,6 @@
                 "lastName": {
                   "example": "any"
                 },
-                "age": {
-                  "example": "any"
-                },
                 "sex": {
                   "example": "any"
                 },
@@ -137,9 +134,6 @@
                   "example": "any"
                 },
                 "lastName": {
-                  "example": "any"
-                },
-                "age": {
                   "example": "any"
                 },
                 "sex": {

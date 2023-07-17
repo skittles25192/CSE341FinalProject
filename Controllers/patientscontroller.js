@@ -6,7 +6,6 @@ const createPatient = async (req, res) => {
     const patient = {
       firstName: req.body.firstName,
       lastName: req.body.lastName,
-      age: req.body.age,
       sex: req.body.sex,
       birthdate: req.body.birthdate,
       email: req.body.email,
@@ -36,7 +35,6 @@ const createPatient = async (req, res) => {
     const patient = {
       firstName: req.body.firstName,
       lastName: req.body.lastName,
-      age: req.body.age,
       sex: req.body.sex,
       birthdate: req.body.birthdate,
       email: req.body.email,
