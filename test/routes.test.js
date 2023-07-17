@@ -227,7 +227,7 @@ describe('Nurses Routes', () => {
     });
 
     it('should get nurses by patient id', async () => {
-        const response = await request(app).get('/nurses/bypatient/' + testId);
+        const response = await request(app).get('/nurses/bypatient/64b574bc5b97499d50bcfebf');
 
         expect(response.statusCode).toBe(200);
         expect(response.body.length).toBeGreaterThan(0);
